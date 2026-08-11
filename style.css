@@ -44,7 +44,7 @@ h3{font-size:18px;margin:0 0 6px}
 p.lead{color:var(--muted);margin-top:0}
 .hero{padding-top:28px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chip{background:var(--chip);border:1px solid var(--border);padding:6px 10px;border-radius:999px;color:#4c5c72;font-size:12px}
+.chip{background:var(--chip);border:1px solid var(--border);padding:8px 14px;border-radius:999px;color:#233041;font-size:16px}
 .list{display:grid;gap:12px;padding-left:0;margin:0;list-style:none}
 .item{padding:14px;border:1px solid var(--border);background:#fff;border-radius:14px}
 .muted{color:var(--muted)}
