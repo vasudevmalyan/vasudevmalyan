@@ -1,43 +1,227 @@
-Vasudev Malyan | Researcher
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vasudev Malyan | Researcher</title>
+  <style>
+    :root {
+      --primary: #24292e;
+      --accent: #0366d6;
+      --bg: #ffffff;
+      --text: #24292e;
+      --tag-bg: #f1f8ff;
+      --tag-text: #0366d6;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    .header-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .site-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      color: #586069;
+    }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--accent); }
+    
+    /* Intro Section */
+    .intro {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: flex-start;
+    }
+    .intro img {
+      width: 220px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .intro-text h1 {
+      margin-top: 0;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .intro-text p {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .social-links a:hover {
+      text-decoration: underline;
+    }
 
+    /* Sections */
+    section { margin-bottom: 3rem; }
+    h2 { border-bottom: 1px solid #eaecef; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    
+    /* Tags */
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
 
+    /* Highlights / Publications */
+    .publication { margin-bottom: 1.5rem; }
+    .publication h3 { margin: 0 0 0.3rem 0; font-size: 1.1rem; }
+    .publication h3 a { color: var(--accent); text-decoration: none; }
+    .publication h3 a:hover { text-decoration: underline; }
+    .publication p { margin: 0; color: #586069; font-size: 0.95rem; }
 
-  
-    
-      Vasudev Malyan
-      Environmental Science • PM2.5 • Sensors
-    
-    
-      About
-      Research
-      Contact
-    
-  
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eaecef;
+      color: #586069;
+      font-size: 0.9rem;
+      text-align: center;
+    }
 
-  
-    
-      Vasudev Malyan
-      
-        I am a researcher at the Environmental Science and Engineering Department at the Indian Institute of Technology Bombay. 
-        Working within the Aerosol & Nanoparticle Technology Laboratory, my work integrates environmental modeling and instrumentation to improve our understanding of air quality.
-      
-      
-        Specifically, I focus on evaluating, modeling, and calibrating low-cost sensors for measuring and analyzing fine particulate matter (PM2.5). My goal is to develop reliable, data-driven approaches that can support effective air quality management and policy decisions.
-      
-    
+    @media (max-width: 600px) {
+      .intro { flex-direction: column; }
+      .intro img { width: 100%; max-width: 300px; }
+      header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+      nav a { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
 
-    
-      Research Interests
-      
-        Low-cost Sensors
-        PM2.5 Characterization
-        Sensor Calibration
-        Air Quality Modeling
-        Aerosol Technology
-      
-    
-  
+  <header>
+    <div class="header-info">
+      <div class="site-title">Vasudev Malyan[cite: 1]</div>
+      <div class="subtitle">Air Quality Sensor Technologies • Data Analysis • Environmental Science[cite: 1]</div>
+    </div>
+    <nav aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  
-    © 2026 Vasudev Malyan • Built with GitHub Pages
+  <main>
+    
+    <section class="intro" aria-label="Intro" id="about">
+      <div>
+        <img alt="Portrait of Vasudev Malyan" src="C6DCF054-0948-47D1-A192-A72F78230264.jpg">
+      </div>
+      <div class="intro-text">
+        <h1>Vasudev Malyan[cite: 1]</h1>
+        <p>
+          I am a Technical Expert in Air Quality Sensor Technologies at Ubiqedge Technologies Private Limited, leading the development of network-scale calibration models and source characterization for low-cost PM sensor deployments[cite: 1]. 
+        </p>
+        <p>
+          I earned my Ph.D. from the Environmental Science and Engineering Department at the Indian Institute of Technology Bombay, where my research focused on the calibration of low-cost particulate matter sensors using physics-based and machine learning frameworks[cite: 1].
+        </p>
+        <div class="social-links">
+          <a href="mailto:malyanvasudev@gmail.com">Email[cite: 1]</a>
+          <a href="https://orcid.org/" target="_blank">ORCID[cite: 1]</a>
+          <a href="https://scholar.google.com/" target="_blank">Google Scholar[cite: 1]</a>
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn[cite: 1]</a>
+          <a href="https://www.researchgate.net/" target="_blank">ResearchGate[cite: 1]</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Research interests" id="research">
+      <h2>Research Interests</h2>
+      <div class="tags">
+        <span class="tag">Low-cost PM Sensors[cite: 1]</span>
+        <span class="tag">Sensor Calibration[cite: 1]</span>
+        <span class="tag">Machine Learning[cite: 1]</span>
+        <span class="tag">Source Apportionment[cite: 1]</span>
+        <span class="tag">IoT Sensor Networks[cite: 1]</span>
+        <span class="tag">Air Pollution Control[cite: 1]</span>
+        <span class="tag">Particulate Matter Characterization[cite: 1]</span>
+      </div>
+    </section>
+    
+    <section aria-label="Highlights">
+      <h2>Highlights</h2>
+      
+      <div class="publication">
+        <h3>
+          <a href="https://doi.org/10.1021/acsestair.6c00161" target="_blank">
+            Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors-Part 2: Mass Concentration-Based Assessment[cite: 1]
+          </a>
+        </h3>
+        <p><strong>Malyan, V., Sahu, M., & Nawale, P.</strong><br>
+        <em>ACS ES&T Air</em> (2026)[cite: 1].
+        </p>
+      </div>
+
+      <div class="publication">
+        <h3>
+          <a href="https://doi.org/10.1021/acsestair.5c00262" target="_blank">
+            Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors-Part 1: Number Concentration-Based Assessment[cite: 1]
+          </a>
+        </h3>
+        <p><strong>Malyan, V., Nawale, P., & Sahu, M.</strong><br>
+        <em>ACS ES&T Air</em> (2025)[cite: 1].
+        </p>
+      </div>
+
+      <div class="publication">
+        <h3>
+          <a href="https://doi.org/10.1016/j.jaerosci.2024.106437" target="_blank">
+            Assessing the Spatial Transferability of Calibration Models across a Low-cost Sensors Network[cite: 1]
+          </a>
+        </h3>
+        <p><strong>Malyan, V., Kumar, V., Moni, M., Sahu, M., Prakash, J., Choudhary, S., Raliya, R., Chadha, T. S., Fang, J., & Biswas, P.</strong><br>
+        <em>Journal of Aerosol Science</em> (2024)[cite: 1].
+        </p>
+      </div>
+      
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div>© 2026 Vasudev Malyan • Built with GitHub Pages</div>
+  </footer>
+
+</body>
+</html>
