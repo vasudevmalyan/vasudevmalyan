@@ -17,6 +17,20 @@
   .addr h3{font-size:16px;font-weight:700;margin:0 0 8px}
   .addr p{margin:0 0 18px;line-height:1.7;font-size:15px}
   .addr .label{font-weight:700}
+
+  /* ---- contact form ---- */
+  .note-form{background:#f7fbff;border:1px solid var(--border);border-radius:14px;padding:20px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:15px;font-weight:600;margin-bottom:6px}
+  .field input,.field textarea{
+    width:100%;font-family:inherit;font-size:15px;color:var(--text);
+    background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+  .field textarea{min-height:120px;resize:vertical}
+  .field input:focus,.field textarea:focus{
+    outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(58,134,255,.15)}
+  .note-form .btn{cursor:pointer;font-family:inherit}
+  .form-note{margin:12px 0 0;font-size:13px;color:var(--muted)}
+
   @media(max-width:760px){
     .contact-grid{grid-template-columns:1fr;gap:20px}
     .map-frame iframe{height:280px}
@@ -54,9 +68,39 @@
         <p>Let's connect!</p>
       </div>
 
+      <!-- ---------- quick note form ---------- -->
+      <div class="card">
+        <h2>Send a quick note</h2>
+        <form class="note-form" action="https://formspree.io/f/mjybwjld" method="POST">
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <!-- honeypot: hidden from people, filled in by bots -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+                 style="position:absolute;left:-9999px" aria-hidden="true">
+
+          <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Send</button>
+
+          <p class="form-note">Replies usually go out within a couple of days. For anything urgent, email me directly.</p>
+        </form>
+      </div>
+
+      <!-- ---------- map & address ---------- -->
       <div class="card">
         <div class="contact-grid">
-
           <div class="map-frame">
             <iframe
               src="https://maps.google.com/maps?q=Ubiqedge%20Technology%20Pvt%20Ltd%2C%20109%20A-Wing%20Solaris%201%2C%20Saki%20Vihar%20Road%2C%20Marol%2C%20Powai%2C%20Mumbai%20400072&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
@@ -65,7 +109,6 @@
               referrerpolicy="no-referrer-when-downgrade"
               allowfullscreen></iframe>
           </div>
-
           <div class="addr">
             <h3>Address</h3>
             <p>
@@ -75,15 +118,12 @@
               Mumbai, Maharashtra 400072,<br>
               India
             </p>
-
             <h3>Email</h3>
             <p>
-            <a href="mailto:malyanvasudev@gmail.com">malyanvasudev@gmail.com</a><br>
-            <a href="mailto:vasudev.malyan@ubiqedge.com">vasudev.malyan@ubiqedge.com</a>
+              <a href="mailto:malyanvasudev@gmail.com">malyanvasudev@gmail.com</a><br>
+              <a href="mailto:vasudev.malyan@ubiqedge.com">vasudev.malyan@ubiqedge.com</a>
             </p>
-            </div>
           </div>
-
         </div>
       </div>
 
