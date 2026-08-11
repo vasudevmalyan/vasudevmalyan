@@ -3,215 +3,355 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vasudev Malyan | Researcher</title>
+  <title>Vasudev Malyan</title>
+  
+  <!-- Fonts and Icons to match the elegant academic theme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
-      --primary: #24292e;
-      --accent: #0366d6;
-      --bg: #ffffff;
-      --text: #24292e;
-      --tag-bg: #f1f8ff;
-      --tag-text: #0366d6;
+      --text-main: #24292f;
+      --text-muted: #57606a;
+      --link-color: #0969da;
+      --link-hover: #0349b4;
+      --bg-color: #ffffff;
+      --border-color: #d0d7de;
+      --tag-bg: #f3f4f6;
+      --tag-text: #24292f;
     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      color: var(--text);
-      max-width: 800px;
+      color: var(--text-main);
+      background-color: var(--bg-color);
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 2rem 1.5rem;
     }
+
+    /* Header & Navigation */
     header {
+      margin-bottom: 4rem;
+    }
+
+    nav[aria-label="Primary"] {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #eaecef;
+      align-items: flex-end;
       padding-bottom: 1rem;
-      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
     }
-    .header-info {
+
+    .header-left {
       display: flex;
       flex-direction: column;
     }
-    .site-title {
-      font-size: 1.2rem;
+
+    .header-name {
+      font-size: 1.25rem;
       font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.2;
     }
-    .subtitle {
+
+    .header-subtitle {
       font-size: 0.9rem;
-      color: #586069;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
     }
-    nav a {
-      color: var(--primary);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 500;
-    }
-    nav a:hover { color: var(--accent); }
-    
-    /* Intro Section */
-    .intro {
+
+    .header-links {
       display: flex;
-      gap: 2rem;
-      margin-bottom: 3rem;
+      gap: 1.5rem;
+    }
+
+    .header-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .header-links a:hover {
+      color: var(--link-color);
+    }
+
+    /* Intro Section */
+    .intro-section {
+      display: flex;
+      gap: 3rem;
       align-items: flex-start;
+      margin-bottom: 4rem;
     }
-    .intro img {
+
+    .intro-image {
+      flex-shrink: 0;
       width: 220px;
-      border-radius: 8px;
+    }
+
+    .intro-image img {
+      width: 100%;
+      height: 220px;
+      border-radius: 50%;
       object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    .intro-text h1 {
-      margin-top: 0;
-      font-size: 2.2rem;
+
+    .intro-content {
+      flex-grow: 1;
+    }
+
+    .intro-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
-    .intro-text p {
+
+    .intro-content p {
       font-size: 1.05rem;
-      margin-bottom: 1rem;
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
     }
+
+    .social-links {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
     .social-links a {
       display: inline-flex;
       align-items: center;
-      margin-right: 1rem;
-      color: var(--accent);
+      gap: 0.4rem;
+      color: var(--link-color);
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
     }
+
+    .social-links a i {
+      font-size: 1.1rem;
+    }
+
     .social-links a:hover {
       text-decoration: underline;
+      color: var(--link-hover);
     }
 
     /* Sections */
-    section { margin-bottom: 3rem; }
-    h2 { border-bottom: 1px solid #eaecef; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
-    
-    /* Tags */
-    .tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+    section {
+      margin-bottom: 4rem;
     }
-    .tag {
-      background: var(--tag-bg);
+
+    section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+
+    /* Research Interests */
+    .research-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .research-grid div {
+      background-color: var(--tag-bg);
       color: var(--tag-text);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
       font-size: 0.9rem;
       font-weight: 500;
+      border: 1px solid #e5e7eb;
     }
 
-    /* Highlights / Publications */
-    .publication { margin-bottom: 1.5rem; }
-    .publication h3 { margin: 0 0 0.3rem 0; font-size: 1.1rem; }
-    .publication h3 a { color: var(--accent); text-decoration: none; }
-    .publication h3 a:hover { text-decoration: underline; }
-    .publication p { margin: 0; color: #586069; font-size: 0.95rem; }
+    /* Highlights */
+    .highlight-item {
+      margin-bottom: 2rem;
+    }
 
+    .highlight-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-item h3 a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .highlight-item h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .highlight-item p {
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .highlight-item p strong {
+      font-weight: 600;
+    }
+
+    .highlight-item em {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Footer */
     footer {
-      margin-top: 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
       padding-top: 2rem;
-      border-top: 1px solid #eaecef;
-      color: #586069;
+      margin-top: 5rem;
+      color: var(--text-muted);
       font-size: 0.9rem;
-      text-align: center;
     }
 
-    @media (max-width: 600px) {
-      .intro { flex-direction: column; }
-      .intro img { width: 100%; max-width: 300px; }
-      header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      nav { display: flex; flex-wrap: wrap; gap: 1rem; }
-      nav a { margin-left: 0; }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav[aria-label="Primary"] {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+      .intro-section {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .intro-image {
+        width: 180px;
+      }
+      .intro-image img {
+        height: 180px;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="header-info">
-      <div class="site-title">Vasudev Malyan[cite: 1]</div>
-      <div class="subtitle">Air Quality Sensor Technologies • Data Analysis • Environmental Science[cite: 1]</div>
-    </div>
     <nav aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Contact</a>
+      <div class="header-left">
+        <div class="header-name">Vasudev Malyan</div>
+        <div class="header-subtitle">Environmental Science • Air Quality • Sensor Technologies</div>
+      </div>
+      <div class="header-links">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </header>
 
   <main>
     
-    <section class="intro" aria-label="Intro" id="about">
-      <div>
-        <img alt="Portrait of Vasudev Malyan" src="C6DCF054-0948-47D1-A192-A72F78230264.jpg">
+    <section class="intro-section" aria-label="Intro" id="about">
+      <div class="intro-image">
+        <!-- Exact filename as requested -->
+        <img alt="Portrait of Vasudev Malyan" src="Profile picture_VM.jpg">
       </div>
-      <div class="intro-text">
-        <h1>Vasudev Malyan[cite: 1]</h1>
+      <div class="intro-content">
+        <h1>Vasudev Malyan</h1>
         <p>
-          I am a Technical Expert in Air Quality Sensor Technologies at Ubiqedge Technologies Private Limited, leading the development of network-scale calibration models and source characterization for low-cost PM sensor deployments[cite: 1]. 
+          Technical Expert in Air Quality Sensor Technologies at Ubiqedge Technologies Private Limited. I lead the development of network-scale calibration models and source characterization approaches for low-cost PM sensor deployments.
         </p>
         <p>
-          I earned my Ph.D. from the Environmental Science and Engineering Department at the Indian Institute of Technology Bombay, where my research focused on the calibration of low-cost particulate matter sensors using physics-based and machine learning frameworks[cite: 1].
+          I earned my Ph.D. from the Environmental Science and Engineering Department at the Indian Institute of Technology Bombay. My research integrates expertise in physics-based modeling and machine learning frameworks to advance environmental monitoring and policy decision-making.
         </p>
         <div class="social-links">
-          <a href="mailto:malyanvasudev@gmail.com">Email[cite: 1]</a>
-          <a href="https://orcid.org/" target="_blank">ORCID[cite: 1]</a>
-          <a href="https://scholar.google.com/" target="_blank">Google Scholar[cite: 1]</a>
-          <a href="https://www.linkedin.com/" target="_blank">LinkedIn[cite: 1]</a>
-          <a href="https://www.researchgate.net/" target="_blank">ResearchGate[cite: 1]</a>
+          <a href="mailto:malyanvasudev@gmail.com">
+            <i class="fa-regular fa-envelope"></i> Email
+          </a>
+          <a href="https://orcid.org/" target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-orcid"></i> ORCID
+          </a>
+          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-google-scholar"></i> Google Scholar
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://www.researchgate.net/" target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-researchgate"></i> ResearchGate
+          </a>
         </div>
       </div>
     </section>
 
     <section aria-label="Research interests" id="research">
       <h2>Research Interests</h2>
-      <div class="tags">
-        <span class="tag">Low-cost PM Sensors[cite: 1]</span>
-        <span class="tag">Sensor Calibration[cite: 1]</span>
-        <span class="tag">Machine Learning[cite: 1]</span>
-        <span class="tag">Source Apportionment[cite: 1]</span>
-        <span class="tag">IoT Sensor Networks[cite: 1]</span>
-        <span class="tag">Air Pollution Control[cite: 1]</span>
-        <span class="tag">Particulate Matter Characterization[cite: 1]</span>
+      <div class="research-grid">
+        <div>Low-cost PM Sensors</div>
+        <div>Sensor Calibration</div>
+        <div>Machine Learning</div>
+        <div>Source Apportionment (PMF, PCA)</div>
+        <div>IoT Sensor Networks</div>
+        <div>Air Pollution Control</div>
+        <div>Particulate Matter Characterization</div>
+        <div>Environmental Monitoring</div>
       </div>
     </section>
     
     <section aria-label="Highlights">
       <h2>Highlights</h2>
       
-      <div class="publication">
+      <div class="highlight-item">
         <h3>
-          <a href="https://doi.org/10.1021/acsestair.6c00161" target="_blank">
-            Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors-Part 2: Mass Concentration-Based Assessment[cite: 1]
+          <a href="https://doi.org/10.1021/acsestair.6c00161" target="_blank" rel="noreferrer">
+            Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors-Part 2: Mass Concentration-Based Assessment
           </a>
         </h3>
         <p><strong>Malyan, V., Sahu, M., & Nawale, P.</strong><br>
-        <em>ACS ES&T Air</em> (2026)[cite: 1].
+        <em>ACS ES&T Air</em> (2026).
         </p>
       </div>
 
-      <div class="publication">
+      <div class="highlight-item">
         <h3>
-          <a href="https://doi.org/10.1021/acsestair.5c00262" target="_blank">
-            Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors-Part 1: Number Concentration-Based Assessment[cite: 1]
+          <a href="https://doi.org/10.1021/acsestair.5c00262" target="_blank" rel="noreferrer">
+            Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors-Part 1: Number Concentration-Based Assessment
           </a>
         </h3>
         <p><strong>Malyan, V., Nawale, P., & Sahu, M.</strong><br>
-        <em>ACS ES&T Air</em> (2025)[cite: 1].
+        <em>ACS ES&T Air</em> (2025).
         </p>
       </div>
 
-      <div class="publication">
+      <div class="highlight-item">
         <h3>
-          <a href="https://doi.org/10.1016/j.jaerosci.2024.106437" target="_blank">
-            Assessing the Spatial Transferability of Calibration Models across a Low-cost Sensors Network[cite: 1]
+          <a href="https://doi.org/10.1016/j.jaerosci.2024.106437" target="_blank" rel="noreferrer">
+            Assessing the Spatial Transferability of Calibration Models across a Low-cost Sensors Network
           </a>
         </h3>
         <p><strong>Malyan, V., Kumar, V., Moni, M., Sahu, M., Prakash, J., Choudhary, S., Raliya, R., Chadha, T. S., Fang, J., & Biswas, P.</strong><br>
-        <em>Journal of Aerosol Science</em> (2024)[cite: 1].
+        <em>Journal of Aerosol Science</em> (2024).
         </p>
       </div>
       
