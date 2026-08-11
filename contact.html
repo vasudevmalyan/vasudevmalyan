@@ -4,12 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Vasudev Malyan</title>
-<meta name="description" content="Get in touch with Vasudev Malyan — email and academic profiles.">
+<meta name="description" content="Get in touch with Vasudev Malyan — email, address and academic profiles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
+<style>
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .map-frame{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#eaf3fb;line-height:0}
+  .map-frame iframe{width:100%;height:340px;border:0;display:block}
+  .addr h3{font-size:16px;font-weight:700;margin:0 0 8px}
+  .addr p{margin:0 0 18px;line-height:1.7;font-size:15px}
+  .addr .label{font-weight:700}
+  @media(max-width:760px){
+    .contact-grid{grid-template-columns:1fr;gap:20px}
+    .map-frame iframe{height:280px}
+  }
+</style>
 </head>
 <body>
 
@@ -17,14 +29,16 @@
 <header>
   <nav aria-label="Primary">
     <div class="brand">
-      <a class="title" href="index.html">Vasudev Malyan</a>
-      <span class="sub">Aerosol Science &bull; Air Quality &bull; Sensor Technologies</span>
+      <a class="title" href="index.html">Dr. Vasudev Malyan</a>
+      <span class="sub">Air Quality &amp; Aerosol Science</span>
     </div>
     <div class="links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="research.html">Research</a>
       <a href="publications.html">Publications</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="beyond.html">Beyond research</a>
       <a href="contact.html" class="active" aria-current="page">Contact</a>
     </div>
   </nav>
@@ -35,16 +49,46 @@
   <div class="wrap">
     <div class="grid">
 
-      <div class="card">
+      <div class="card dark">
         <h1>Contact</h1>
-        <p>Email: <a href="mailto:malyanvasudev@gmail.com">malyanvasudev@gmail.com</a><br>
-        Location: Mumbai, India</p>
-        <p>Profiles:
-          <a href="https://scholar.google.com/citations?user=F7Qm9uYAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar</a> &bull;
-          <a href="https://orcid.org/0000-0003-4185-0477" target="_blank" rel="noreferrer">ORCID</a> &bull;
-          <a href="https://www.linkedin.com/in/vasudevmalyan/" target="_blank" rel="noreferrer">LinkedIn</a> &bull;
-          <a href="https://www.researchgate.net/profile/Vasudev_Malyan" target="_blank" rel="noreferrer">ResearchGate</a>
-        </p>
+        <p>Always glad to hear from people working on air quality measurement, sensor calibration or aerosol instrumentation.</p>
+      </div>
+
+      <div class="card">
+        <div class="contact-grid">
+
+          <div class="map-frame">
+            <iframe
+              src="https://maps.google.com/maps?q=Ubiqedge%20Technology%20Pvt%20Ltd%2C%20109%20A-Wing%20Solaris%201%2C%20Saki%20Vihar%20Road%2C%20Marol%2C%20Powai%2C%20Mumbai%20400072&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+              title="Map showing Ubiqedge Technologies, Powai, Mumbai"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="addr">
+            <h3>Address</h3>
+            <p>
+              Ubiqedge Technologies Private Limited,<br>
+              109, A-Wing, Solaris 1,<br>
+              Saki Vihar Road, Marol, Powai,<br>
+              Mumbai, Maharashtra 400072,<br>
+              India
+            </p>
+
+            <h3>Email</h3>
+            <p><a href="mailto:malyanvasudev@gmail.com">malyanvasudev@gmail.com</a></p>
+
+            <h3>Profiles</h3>
+            <div class="cta" style="margin-top:0">
+              <a class="btn" href="https://scholar.google.com/citations?user=F7Qm9uYAAAAJ&amp;hl=en" target="_blank" rel="noreferrer"><i class="fa-brands fa-google-scholar"></i> Google Scholar</a>
+              <a class="btn" href="https://orcid.org/0000-0003-4185-0477" target="_blank" rel="noreferrer"><i class="fa-brands fa-orcid"></i> ORCID</a>
+              <a class="btn" href="https://www.linkedin.com/in/vasudevmalyan/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <a class="btn" href="https://www.researchgate.net/profile/Vasudev_Malyan" target="_blank" rel="noreferrer"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
