@@ -112,7 +112,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .cv-entry .role{font-size:15px}
 .cv-entry .right{text-align:right;white-space:nowrap;color:var(--muted);font-size:14px;width:1%;padding-left:20px}
 .cv-note{margin:8px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
-.cv-note em{color:var(--text);font-style:italic;font-weight:600}
+.cv-note em{color:var(--text);font-style:normal;font-weight:700;text-decoration:underline}
 .cv-grade{font-weight:600;color:var(--text)}
 
 /* ---------- awards table ---------- */
