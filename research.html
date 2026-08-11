@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research | Vasudev Malyan</title>
+<meta name="description" content="Research themes — calibration chambers, physical-optical models, sensor networks, source apportionment and measurement for policy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== SHARED NAV ===== -->
+<header>
+  <nav aria-label="Primary">
+    <div class="brand">
+      <a class="title" href="index.html">Vasudev Malyan</a>
+      <span class="sub">Aerosol Science &bull; Air Quality &bull; Sensor Technologies</span>
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html" class="active" aria-current="page">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+<!-- ===== END SHARED NAV ===== -->
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+
+      <div class="card dark">
+        <h1>Research</h1>
+        <p>Five threads, one question: when can you believe a cheap sensor?</p>
+      </div>
+
+      <div class="card">
+        <div class="theme">
+          <h3>Calibration chambers</h3>
+          <p>Sensor evaluation studies rarely agree, largely because they run under conditions nobody else can reproduce. I designed and commissioned a 1.3&nbsp;m&sup3; environmental chamber with independent control over aerosol source, concentration, temperature and humidity, and used it to set out how low-cost sensors should be assessed &mdash; treating number and mass concentration separately, since a sensor can pass on one and fail on the other.</p>
+        </div>
+
+        <div class="theme">
+          <h3>Physical-optical calibration</h3>
+          <p>Most corrections are empirical: fit against a reference and hope conditions hold. They usually don't. I build the correction from the instrument outward instead &mdash; Mie scattering through the sensor's own optics and detector response, with humidity handled as &kappa;&ndash;K&ouml;hler particle growth rather than a regression variable. Grounded in physics, the model doesn't need refitting each time the aerosol changes.</p>
+        </div>
+
+        <div class="theme">
+          <h3>Sensor networks</h3>
+          <p>A city-scale network can't afford a reference monitor at every node, so calibrations must travel. I've examined how far they travel and why they stop, and used MERRA-2 reconstructed PM<sub>2.5</sub> as a proxy where no reference existed at all. I also built the IoT sensor network architecture across the IIT Bombay campus.</p>
+        </div>
+
+        <div class="theme">
+          <h3>Source apportionment</h3>
+          <p>Calibration and source attribution are the same problem from opposite ends &mdash; both depend on what the particles actually are. I work on receptor modelling from low-cost sensor data, and on machine-learning classification to label the factors that receptor models return.</p>
+        </div>
+
+        <div class="theme">
+          <h3>Measurement for policy</h3>
+          <p>I built the analysis pipeline for a pilot study evaluating Delhi's smog tower at two sites, pairing reference-grade monitors with sensor arrays to test a heavily publicised intervention against measurement. I also contributed to a T20 policy brief for the G20 on low-cost sensor and satellite synergies.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Projects</h2>
+        <ul class="list">
+          <li class="item entry">
+            <strong>IoT-Based Low-cost Sensor Network for Air Quality Monitoring</strong>
+            <span class="meta">IIT Bombay (2022&ndash;2023)</span>
+            <span class="note">Network architecture across campus, calibration algorithms integrated into the platform software</span>
+          </li>
+          <li class="item entry">
+            <strong>Smog Tower Pilot Study</strong>
+            <span class="meta">NCT-Delhi (2021&ndash;2022)</span>
+            <span class="note">End-to-end pipeline integrating E-BAM, GRIMM OPS 1.109 and TSI DustTrak with low-cost sensors at two sites</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-wrap">&copy; 2026 Vasudev Malyan &bull; Built with GitHub Pages</div>
+</footer>
+
+</body>
+</html>
