@@ -65,7 +65,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 /* ---------- hero: photo beside the text, inside the dark card ---------- */
 .hero-card{display:flex;align-items:center;gap:30px}
 .hero-card .photo{width:190px;height:190px;flex-shrink:0;border-radius:50%;border:5px solid #fff;
-  box-shadow:var(--shadow);background:#e8f6ff url('assets/profile.jpg') center/cover no-repeat}
+  box-shadow:var(--shadow);background:#e8f6ff url('assets/Profile picture_VM.jpg') center/cover no-repeat}
 .hero-card .hero-text{min-width:0}
 @media(max-width:760px){
   .hero-card{flex-direction:column;text-align:center;gap:20px}
