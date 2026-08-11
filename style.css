@@ -1,0 +1,149 @@
+/* =================================================================
+   Vasudev Malyan — shared stylesheet
+   Linked by all five pages.
+   ================================================================= */
+
+:root{
+  --bg:#ffffff;
+  --grad1:#EAF6FF;
+  --grad2:#F8F9FF;
+  --card:#ffffff;
+  --text:#233041;
+  --muted:#5a6a7d;
+  --accent:#3A86FF;
+  --border:#e7eef6;
+  --chip:#F1F7FF;
+  --radius:18px;
+  --shadow:0 8px 24px rgba(21,40,76,.08);
+  --max:1100px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);
+  background:linear-gradient(180deg,var(--grad1),var(--grad2));}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* ---------- header & navigation ---------- */
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);
+  backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
+nav{max-width:var(--max);margin:auto;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px 20px}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand .title{font-weight:700;color:var(--text);font-size:17px}
+.brand a.title:hover{text-decoration:none;color:var(--accent)}
+.brand .sub{font-size:13px;color:var(--muted);font-weight:500}
+.links a{padding:8px 10px;border-radius:10px;color:#405167}
+.links a:hover{background:#edf4ff;text-decoration:none}
+.links a.active{background:#dfeeff}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--max);margin:auto;padding:28px 20px}
+.grid{display:grid;gap:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+h1{font-size:38px;line-height:1.2;margin:0 0 10px}
+h2{font-size:26px;margin:0 0 14px}
+h3{font-size:18px;margin:0 0 6px}
+p.lead{color:var(--muted);margin-top:0}
+.hero{padding-top:28px}
+.muted{color:var(--muted)}
+
+/* ---------- chips ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{background:var(--chip);border:1px solid var(--border);padding:8px 14px;border-radius:999px;color:#233041;font-size:16px}
+
+/* ---------- lists & buttons ---------- */
+.list{display:grid;gap:12px;padding-left:0;margin:0;list-style:none}
+.item{padding:14px;border:1px solid var(--border);background:#fff;border-radius:14px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);
+  padding:10px 14px;border-radius:12px;color:#1f3b63;box-shadow:var(--shadow);font-size:16px}
+.btn i{font-size:20px;line-height:1}
+.btn:hover{background:#f4f8ff;text-decoration:none}
+
+/* ---------- footer ---------- */
+footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
+.footer-wrap{max-width:var(--max);margin:auto}
+
+/* ---------- dark card (hero, About Me) ---------- */
+.card.dark{background:var(--text);border-color:var(--text);color:#fff}
+.card.dark h1,.card.dark h2,.card.dark h3{color:#fff}
+.card.dark p{color:#dbe4ef}
+.card.dark strong{color:#fff}
+.card.dark a:not(.btn){color:#8fc0ff}
+
+/* ---------- hero: photo beside the text, inside the dark card ---------- */
+.hero-card{display:flex;align-items:center;gap:30px}
+.hero-card .photo{width:190px;height:190px;flex-shrink:0;border-radius:50%;border:5px solid #fff;
+  box-shadow:var(--shadow);background:#e8f6ff url('assets/Profile picture_VM.jpg') center/cover no-repeat}
+.hero-card .hero-text{min-width:0}
+@media(max-width:760px){
+  .hero-card{flex-direction:column;text-align:center;gap:20px}
+  .hero-card .photo{width:150px;height:150px}
+  .cta{justify-content:center}
+}
+
+/* ---------- publications ---------- */
+.pub h3{margin:0 0 4px;font-weight:600;line-height:1.4;font-size:16px}
+.pub h3 a{color:var(--accent)}
+.pub .authors{margin:0;font-size:14px;font-weight:600}
+.pub .venue{margin:0;font-size:14px;color:var(--muted);font-style:italic}
+.badge{display:inline-block;background:var(--chip);border:1px solid var(--accent);color:var(--accent);
+  padding:1px 8px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:.3px;
+  text-transform:uppercase;margin-left:6px;vertical-align:2px;white-space:nowrap}
+
+/* ---------- highlights with graphical abstracts ---------- */
+.highlight{margin-top:28px}
+.highlight:first-of-type{margin-top:0}
+.highlight h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
+.highlight h3 a{color:var(--accent)}
+.highlight .authors{margin:0;font-weight:700;font-size:15px}
+.highlight .venue{margin:0 0 14px;font-size:15px}
+.figure{background:#f7fbff;border:1px solid var(--border);border-radius:14px;padding:12px;margin:0}
+.figure img{width:100%;height:auto;display:block;border-radius:8px}
+.figure figcaption{margin-top:10px;text-align:center;font-size:14px;line-height:1.5}
+
+/* ---------- CV-style entries (education, experience) ---------- */
+.cv-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.cv-head .org{font-weight:700;font-size:16px}
+.cv-head .role{font-size:15px}
+.cv-head .place,.cv-head .date{font-size:14px;color:var(--muted);white-space:nowrap}
+.cv-note{margin:6px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
+.cv-note em{color:var(--text);font-style:italic}
+.cv-grade{font-weight:600;color:var(--text)}
+
+/* ---------- CV-style table (awards) ---------- */
+.cv-table{width:100%;border-collapse:collapse}
+.cv-table td{padding:9px 0;border-top:1px solid var(--border);vertical-align:top;font-size:15px}
+.cv-table tr:first-child td{border-top:none}
+.cv-table .yr{width:90px;color:var(--muted);font-weight:600;font-size:14px;white-space:nowrap;padding-right:16px}
+
+/* ---------- simple entries (projects, conferences) ---------- */
+.entry strong{font-size:16px}
+.entry .meta{display:block;font-size:15px;margin-top:2px}
+.entry .note{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+
+/* ---------- skills groups ---------- */
+.group{margin-top:16px}
+.group:first-child{margin-top:0}
+.group h3{font-size:16px;margin:0}
+
+/* ---------- research themes ---------- */
+.theme + .theme{margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
+
+/* ---------- small screens ---------- */
+@media(max-width:720px){
+  nav{flex-wrap:wrap;gap:10px;padding:10px 16px}
+  .links{display:flex;flex-wrap:wrap;gap:2px}
+  .links a{padding:6px 8px;font-size:14px}
+  h1{font-size:30px}
+  h2{font-size:22px}
+  .wrap{padding:20px 16px}
+}
+@media(max-width:600px){
+  .cv-table .yr{width:70px;padding-right:10px}
+  .cv-head .place,.cv-head .date{white-space:normal}
+}
+
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
