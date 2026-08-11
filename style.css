@@ -35,7 +35,7 @@ nav{max-width:var(--max);margin:auto;display:flex;align-items:center;justify-con
 .brand a.title:hover{text-decoration:none;color:var(--accent)}
 .brand .sub{font-size:13px;color:var(--muted);font-weight:500}
 .links a{padding:8px 10px;border-radius:10px;color:#405167}
-.links a:hover{background:#edf4ff;text-underline-offset:3px}
+.links a:hover{background:#edf4ff}
 .links a.active{background:#dfeeff}
 
 /* ---------- layout ---------- */
