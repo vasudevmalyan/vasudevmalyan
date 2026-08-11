@@ -167,6 +167,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .split-text h2{margin-top:0}
 .split-text p{margin:0 0 14px}
 .split-list{list-style:none;padding:0;margin:0 0 14px}
+.split-list .hl{color:var(--accent);font-weight:600}
 .split-list li{position:relative;padding-left:20px;margin-bottom:7px;line-height:1.55}
 .split-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;
   border-radius:50%;background:var(--accent)}
