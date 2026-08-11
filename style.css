@@ -134,6 +134,12 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 /* ---------- research themes ---------- */
 .theme + .theme{margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
 
+/* ---------- medium screens: seven nav links need tighter spacing ---------- */
+@media(max-width:1000px){
+  .links a{padding:8px 7px;font-size:15px}
+  nav{gap:12px}
+}
+
 /* ---------- small screens ---------- */
 @media(max-width:720px){
   nav{flex-wrap:wrap;gap:10px;padding:10px 16px}
