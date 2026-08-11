@@ -50,7 +50,7 @@ p.lead{color:var(--muted);margin-top:0}
 .muted{color:var(--muted)}
 .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);
-  padding:10px 14px;border-radius:12px;color:#1f3b63;box-shadow:var(--shadow);font-size:15px}
+  padding:10px 14px;border-radius:12px;color:#1f3b63;box-shadow:var(--shadow);font-size:16px}
 .btn i{font-size:20px;line-height:1}
 .btn:hover{background:#f4f8ff;text-decoration:none}
 footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
