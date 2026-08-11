@@ -3,24 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vasudev Malyan</title>
+  <title>Vasudev Malyan | Researcher</title>
   
-  <!-- Fonts and Icons to match the elegant academic theme -->
+  <!-- Academic Typography and Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --text-main: #24292f;
-      --text-muted: #57606a;
-      --link-color: #0969da;
-      --link-hover: #0349b4;
+      --text-main: #24292e;
+      --text-light: #586069;
+      --accent: #0366d6;
+      --accent-hover: #005cc5;
       --bg-color: #ffffff;
-      --border-color: #d0d7de;
-      --tag-bg: #f3f4f6;
-      --tag-text: #24292f;
+      --border: #eaecef;
     }
 
     * {
@@ -31,224 +29,222 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--text-main);
       background-color: var(--bg-color);
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: 2rem 2rem;
     }
 
     /* Header & Navigation */
     header {
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
     }
 
-    nav[aria-label="Primary"] {
+    nav {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border-color);
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
     }
 
-    .header-left {
+    .brand {
       display: flex;
       flex-direction: column;
     }
 
-    .header-name {
-      font-size: 1.25rem;
+    .brand .name {
+      font-family: 'Lora', serif;
+      font-size: 1.4rem;
       font-weight: 600;
       color: var(--text-main);
-      line-height: 1.2;
     }
 
-    .header-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
+    .brand .subtitle {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 0.3rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
     }
 
-    .header-links {
+    .nav-links {
       display: flex;
       gap: 1.5rem;
+      margin-top: 0.3rem;
     }
 
-    .header-links a {
+    .nav-links a {
       color: var(--text-main);
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
 
-    .header-links a:hover {
-      color: var(--link-color);
+    .nav-links a:hover {
+      color: var(--accent);
     }
 
     /* Intro Section */
-    .intro-section {
+    .intro {
       display: flex;
-      gap: 3rem;
-      align-items: flex-start;
-      margin-bottom: 4rem;
+      align-items: center;
+      gap: 4rem;
+      margin-bottom: 5rem;
     }
 
-    .intro-image {
+    .intro-photo {
       flex-shrink: 0;
-      width: 220px;
+      width: 240px;
     }
 
-    .intro-image img {
+    .intro-photo img {
       width: 100%;
-      height: 220px;
-      border-radius: 50%;
+      height: 240px;
       object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
 
-    .intro-content {
-      flex-grow: 1;
-    }
-
-    .intro-content h1 {
+    .intro-text h1 {
+      font-family: 'Lora', serif;
       font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: var(--text-main);
     }
 
-    .intro-content p {
+    .intro-text p {
       font-size: 1.05rem;
       color: var(--text-main);
       margin-bottom: 1.2rem;
-      line-height: 1.7;
+      font-weight: 300;
     }
 
-    .social-links {
+    .socials {
       display: flex;
-      gap: 1.25rem;
-      margin-top: 1.5rem;
+      gap: 1.5rem;
+      margin-top: 2rem;
       flex-wrap: wrap;
     }
 
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      color: var(--link-color);
+    .socials a {
+      color: var(--text-light);
       text-decoration: none;
-      font-weight: 500;
       font-size: 0.95rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s ease;
     }
 
-    .social-links a i {
-      font-size: 1.1rem;
+    .socials a:hover {
+      color: var(--accent);
     }
 
-    .social-links a:hover {
-      text-decoration: underline;
-      color: var(--link-hover);
+    .socials i {
+      font-size: 1.2rem;
     }
 
-    /* Sections */
+    /* Sections Layout */
     section {
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
     }
 
     section h2 {
-      font-size: 1.5rem;
+      font-family: 'Lora', serif;
+      font-size: 1.6rem;
       font-weight: 600;
-      margin-bottom: 1.5rem;
       color: var(--text-main);
-    }
-
-    /* Research Interests */
-    .research-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .research-grid div {
-      background-color: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 0.4rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: 1px solid #e5e7eb;
-    }
-
-    /* Highlights */
-    .highlight-item {
       margin-bottom: 2rem;
     }
 
-    .highlight-item h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
+    /* Research Tags */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .interests div {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background-color: #f6f8fa;
+      border: 1px solid var(--border);
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 500;
+    }
+
+    /* Publications List */
+    .publication {
+      margin-bottom: 2.5rem;
+    }
+
+    .publication h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
       line-height: 1.4;
       margin-bottom: 0.4rem;
     }
 
-    .highlight-item h3 a {
-      color: var(--link-color);
+    .publication h3 a {
+      color: var(--accent);
       text-decoration: none;
     }
 
-    .highlight-item h3 a:hover {
+    .publication h3 a:hover {
       text-decoration: underline;
     }
 
-    .highlight-item p {
-      font-size: 1rem;
+    .publication p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .publication strong {
       color: var(--text-main);
+      font-weight: 500;
     }
 
-    .highlight-item p strong {
-      font-weight: 600;
-    }
-
-    .highlight-item em {
-      color: var(--text-muted);
+    .publication em {
       font-style: italic;
     }
 
     /* Footer */
     footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid var(--border);
       padding-top: 2rem;
-      margin-top: 5rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
     }
 
-    /* Responsive Design */
+    /* Mobile Adaptability */
     @media (max-width: 768px) {
-      nav[aria-label="Primary"] {
+      nav {
         flex-direction: column;
-        align-items: flex-start;
         gap: 1.5rem;
       }
-      .intro-section {
-        flex-direction: column;
+      .intro {
+        flex-direction: column-reverse;
+        text-align: center;
         gap: 2rem;
       }
-      .intro-image {
+      .intro-photo {
         width: 180px;
       }
-      .intro-image img {
+      .intro-photo img {
         height: 180px;
       }
-      footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+      .socials {
+        justify-content: center;
       }
     }
   </style>
@@ -257,12 +253,12 @@
 
   <header>
     <nav aria-label="Primary">
-      <div class="header-left">
-        <div class="header-name">Vasudev Malyan</div>
-        <div class="header-subtitle">Environmental Science • Air Quality • Sensor Technologies</div>
+      <div class="brand">
+        <div class="name">Vasudev Malyan</div>
+        <div class="subtitle">Atmospheric Science • Sensor Technologies • Data Analysis</div>
       </div>
-      <div class="header-links">
-        <a href="index.html">Home</a>
+      <div class="nav-links">
+        <a href="#">Home</a>
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#contact">Contact</a>
@@ -272,42 +268,31 @@
 
   <main>
     
-    <section class="intro-section" aria-label="Intro" id="about">
-      <div class="intro-image">
-        <!-- Exact filename as requested -->
-        <img alt="Portrait of Vasudev Malyan" src="Profile picture_VM.jpg">
-      </div>
-      <div class="intro-content">
+    <section class="intro" id="about">
+      <div class="intro-text">
         <h1>Vasudev Malyan</h1>
         <p>
-          Technical Expert in Air Quality Sensor Technologies at Ubiqedge Technologies Private Limited. I lead the development of network-scale calibration models and source characterization approaches for low-cost PM sensor deployments.
+          I am a Technical Expert in Air Quality Sensor Technologies at Ubiqedge Technologies Private Limited, leading the development of network-scale calibration models and source characterization approaches for ongoing low-cost PM sensor deployments.
         </p>
         <p>
-          I earned my Ph.D. from the Environmental Science and Engineering Department at the Indian Institute of Technology Bombay. My research integrates expertise in physics-based modeling and machine learning frameworks to advance environmental monitoring and policy decision-making.
+          Having earned my Ph.D. from the Environmental Science and Engineering Department at the Indian Institute of Technology Bombay, my work integrates expertise in physics-based modeling and machine learning frameworks to develop evidence-based insights supporting air quality management and environmental monitoring.
         </p>
-        <div class="social-links">
-          <a href="mailto:malyanvasudev@gmail.com">
-            <i class="fa-regular fa-envelope"></i> Email
-          </a>
-          <a href="https://orcid.org/" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-orcid"></i> ORCID
-          </a>
-          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-google-scholar"></i> Google Scholar
-          </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://www.researchgate.net/" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-researchgate"></i> ResearchGate
-          </a>
+        <div class="socials">
+          <a href="mailto:malyanvasudev@gmail.com"><i class="fa-regular fa-envelope"></i> Email</a>
+          <a href="https://orcid.org/" target="_blank" rel="noreferrer"><i class="fa-brands fa-orcid"></i> ORCID</a>
+          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer"><i class="fa-brands fa-google-scholar"></i> Google Scholar</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://www.researchgate.net/" target="_blank" rel="noreferrer"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
         </div>
+      </div>
+      <div class="intro-photo">
+        <img alt="Portrait of Vasudev Malyan" src="Profile picture_VM.jpg">
       </div>
     </section>
 
-    <section aria-label="Research interests" id="research">
+    <section id="research">
       <h2>Research Interests</h2>
-      <div class="research-grid">
+      <div class="interests">
         <div>Low-cost PM Sensors</div>
         <div>Sensor Calibration</div>
         <div>Machine Learning</div>
@@ -315,14 +300,13 @@
         <div>IoT Sensor Networks</div>
         <div>Air Pollution Control</div>
         <div>Particulate Matter Characterization</div>
-        <div>Environmental Monitoring</div>
       </div>
     </section>
     
-    <section aria-label="Highlights">
+    <section id="highlights">
       <h2>Highlights</h2>
       
-      <div class="highlight-item">
+      <div class="publication">
         <h3>
           <a href="https://doi.org/10.1021/acsestair.6c00161" target="_blank" rel="noreferrer">
             Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors-Part 2: Mass Concentration-Based Assessment
@@ -333,7 +317,7 @@
         </p>
       </div>
 
-      <div class="highlight-item">
+      <div class="publication">
         <h3>
           <a href="https://doi.org/10.1021/acsestair.5c00262" target="_blank" rel="noreferrer">
             Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors-Part 1: Number Concentration-Based Assessment
@@ -344,7 +328,7 @@
         </p>
       </div>
 
-      <div class="highlight-item">
+      <div class="publication">
         <h3>
           <a href="https://doi.org/10.1016/j.jaerosci.2024.106437" target="_blank" rel="noreferrer">
             Assessing the Spatial Transferability of Calibration Models across a Low-cost Sensors Network
