@@ -107,3 +107,14 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 }
 
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+
+/* ---------- highlights with graphical abstracts ---------- */
+.highlight{margin-top:28px}
+.highlight:first-of-type{margin-top:0}
+.highlight h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
+.highlight h3 a{color:var(--accent)}
+.highlight .authors{margin:0;font-weight:700;font-size:15px}
+.highlight .venue{margin:0 0 14px;font-size:15px}
+.figure{background:#f7fbff;border:1px solid var(--border);border-radius:14px;padding:12px;margin:0}
+.figure img{width:100%;height:auto;display:block;border-radius:8px}
+.figure figcaption{margin-top:10px;text-align:center;font-size:14px;line-height:1.5}
