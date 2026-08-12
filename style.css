@@ -97,7 +97,7 @@ p.lead{color:var(--muted);margin-top:0}
 footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .footer-wrap{max-width:var(--max);margin:auto}
 
-/* ---------- dark card (hero, page headings) — deep blue ---------- */
+/* ---------- dark card (hero, page headings) ---------- */
 .card.dark{background:var(--deep);border-color:var(--deep);color:#fff}
 .card.dark h1,.card.dark h2,.card.dark h3{color:#fff}
 .card.dark p{color:#dbe6f7}
@@ -236,8 +236,9 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .carousel-dot[aria-selected="true"]{background:var(--accent)}
 
 /* ---------- publication carousel (research page) ----------
-   Fixed slide height so every slide is identical regardless of
-   title length or graphical-abstract aspect ratio. */
+   The height floor sits on the SLIDE, not the title, so every slide is
+   the same height whether the title runs to one line or two — and the
+   authors sit tight under the title with no phantom gap. */
 #pubCarousel .carousel-slide{min-height:600px}
 #pubCarousel .carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
 #pubCarousel .carousel-slide h3 a{color:var(--accent)}
@@ -248,6 +249,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 
 /* ---------- two-column bottom panel (home) ---------- */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.duo > .card{display:flex;flex-direction:column}
 
 /* narrow column — no side gutters; arrows sit in the dots row */
 #liCarousel{padding:0}
@@ -257,17 +259,13 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .li-slide iframe{width:100%;height:520px;border:1px solid var(--border);border-radius:14px;
   background:#fff;display:block}
 
-/* talks list */
-.talks{list-style:none;margin:0;padding:0}
+/* talks list — fills the column and spreads its entries down it */
+.talks{list-style:none;margin:0;padding:0;flex:1 1 auto;
+  display:flex;flex-direction:column;justify-content:space-between}
 .talks li{padding:12px 0;border-top:1px solid var(--border)}
 .talks li:first-child{border-top:none;padding-top:0}
 .talks .what{display:block;font-size:15px;font-weight:600;line-height:1.45}
 .talks .where{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
-
-/* fill the column and spread the entries down it */
-.duo > .card{display:flex;flex-direction:column}
-.talks{list-style:none;margin:0;padding:0;flex:1 1 auto;
-  display:flex;flex-direction:column;justify-content:space-between}
 
 /* ---------- medium screens: seven nav links need tighter spacing ---------- */
 @media(max-width:1000px){
