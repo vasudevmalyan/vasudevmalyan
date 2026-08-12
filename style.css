@@ -184,21 +184,28 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .split--reverse .split-fig{order:2}
 .split--reverse .split-text{order:1}
 
-/* ---------- publication carousel ---------- */
-.carousel{position:relative}
-.carousel-track{overflow:hidden;border-radius:14px}
+/* ---------- publication carousel ----------
+   Same typography as .highlight; arrows sit in the gutters either side. */
+.carousel{position:relative;padding:0 54px}
+.carousel-track{overflow:hidden}
 .carousel-slides{display:flex;transition:transform .35s ease}
 .carousel-slide{min-width:100%;padding:2px}
-.carousel-slide h3{font-size:17px;line-height:1.4;margin:0 0 4px;font-weight:700}
+.carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
 .carousel-slide h3 a{color:var(--accent)}
-.carousel-slide .authors{margin:0;font-weight:600;font-size:14px}
-.carousel-slide .venue{margin:0 0 12px;font-size:14px;color:var(--muted);font-style:italic}
-.carousel-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px}
-.carousel-btn{background:#fff;border:1px solid var(--border);border-radius:50%;width:36px;height:36px;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;color:#1f3b63;
-  box-shadow:var(--shadow);font-size:14px}
+.carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
+.carousel-slide .venue{margin:0 0 14px;font-size:15px;color:var(--muted);font-style:italic}
+
+.carousel-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:40px;height:40px;border-radius:50%;
+  background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);
+  display:flex;align-items:center;justify-content:center;
+  color:#1f3b63;font-size:15px;cursor:pointer;z-index:2}
 .carousel-btn:hover{background:#f4f8ff}
-.carousel-dots{display:flex;gap:8px}
+.carousel-btn.prev{left:0}
+.carousel-btn.next{right:0}
+
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:#cbd9ea;border:none;padding:0;cursor:pointer}
 .carousel-dot[aria-selected="true"]{background:var(--accent)}
 
@@ -214,6 +221,11 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .split-img{position:static;min-height:0}
   .split-img img{position:static;height:auto;object-fit:initial}
   .split--reverse .split-fig,.split--reverse .split-text{order:initial}
+
+  /* no room for side gutters — arrows drop down beside the dots */
+  .carousel{padding:0}
+  .carousel-btn{position:static;transform:none}
+  .carousel-dots{align-items:center;gap:12px}
 }
 @media(max-width:720px){
   nav{flex-wrap:wrap;gap:10px;padding:10px 16px}
