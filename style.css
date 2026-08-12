@@ -190,10 +190,19 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .carousel-track{overflow:hidden}
 .carousel-slides{display:flex;transition:transform .35s ease}
 .carousel-slide{min-width:100%;padding:2px}
-.carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
+.carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700;min-height:52px}
 .carousel-slide h3 a{color:var(--accent)}
 .carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
 .carousel-slide .venue{margin:0 0 14px;font-size:15px;color:var(--muted);font-style:italic}
+
+/* fixed image box so every slide is the same height regardless of the
+   abstract's aspect ratio — contain scales it without cropping */
+.carousel-slide .figure img{
+  height:300px;
+  width:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#fff}
 
 .carousel-btn{
   position:absolute;top:50%;transform:translateY(-50%);
@@ -226,6 +235,8 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .carousel{padding:0}
   .carousel-btn{position:static;transform:none}
   .carousel-dots{align-items:center;gap:12px}
+  .carousel-slide .figure img{height:200px}
+  .carousel-slide h3{min-height:0}
 }
 @media(max-width:720px){
   nav{flex-wrap:wrap;gap:10px;padding:10px 16px}
