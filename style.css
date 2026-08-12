@@ -236,17 +236,20 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .carousel-dot[aria-selected="true"]{background:var(--accent)}
 
 /* ---------- publication carousel (research page) ----------
-   The height floor sits on the SLIDE, not the title, so every slide is
-   the same height whether the title runs to one line or two — and the
-   authors sit tight under the title with no phantom gap. */
-#pubCarousel .carousel-slide{min-height:600px}
-#pubCarousel .carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
+   NOTE: research.html carries the same rules in a page-level <style>
+   block, which is what actually renders. Keep the two in sync.
+   A hard height on the track and slide means every slide is identical
+   regardless of title length or abstract aspect ratio. */
+#pubCarousel .carousel-track{height:460px}
+#pubCarousel .carousel-slide{height:460px;overflow:hidden}
+#pubCarousel .carousel-slide h3{font-size:18px;line-height:1.35;margin:0 0 5px;font-weight:700}
 #pubCarousel .carousel-slide h3 a{color:var(--accent)}
-#pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
-#pubCarousel .carousel-slide .venue{margin:0 0 14px;font-size:15px;color:var(--muted);font-style:italic}
+#pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:14px}
+#pubCarousel .carousel-slide .venue{margin:0 0 10px;font-size:14px;color:var(--muted);font-style:italic}
+#pubCarousel .carousel-slide .figure{padding:10px}
 #pubCarousel .carousel-slide .figure img{
-  height:380px;width:100%;object-fit:contain;object-position:center;background:#fff}
-#pubCarousel .carousel-track{height:600px}
+  height:260px;width:100%;object-fit:contain;object-position:center;background:#fff}
+#pubCarousel .carousel-slide .figure figcaption{margin-top:8px;font-size:13px}
 
 /* ---------- two-column bottom panel (home) ---------- */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
@@ -290,9 +293,9 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .carousel-btn{position:static;transform:none}
   .carousel-dots{gap:12px}
 
-  #pubCarousel .carousel-slide{min-height:0}
-  #pubCarousel .carousel-slide .figure img{height:200px}
   #pubCarousel .carousel-track{height:auto}
+  #pubCarousel .carousel-slide{height:auto;overflow:visible}
+  #pubCarousel .carousel-slide .figure img{height:200px}
 }
 @media(max-width:720px){
   nav{flex-wrap:wrap;gap:10px;padding:10px 16px}
