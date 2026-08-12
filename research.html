@@ -81,11 +81,11 @@
               <img src="assets/calibration-framework.png"
                    alt="Four-strand framework: field evaluation, laboratory assessment, physics-based modelling and scalable calibration feeding an integrated calibration engine that converts a sparse monitoring network into dense, validated PM2.5 coverage">
             </div>
-            <figcaption>The integration of field, laboratory, and satellite-derived data within a singular calibration framework transforms a sparse observational network into dense validated PM</sub>2.5</sub> mass estimations.</figcaption>
+            <figcaption>The integration of field, laboratory, physical and satellite-derived data within a single calibration framework transforms a sparse observational network into dense, validated PM<sub>2.5</sub> mass estimates.</figcaption>
           </figure>
 
           <div class="split-text">
-            <h2>From sparse networks to reliable PM<sub>2.5</sub> Mass Estimates</h2>
+            <h2>From sparse networks to reliable PM<sub>2.5</sub> mass estimates</h2>
 
             <p>My doctoral work approached low-cost sensor (LCS) calibration from four directions at once, field, laboratory, physical model and satellite proxy, and fed all four into a single calibration engine. What came out of it:</p>
 
@@ -102,6 +102,59 @@
         </div>
       </div>
 
+      <!-- ===== Highlighted publications carousel ===== -->
+      <div class="card">
+        <h2>Highlighted publications</h2>
+
+        <div class="carousel" id="pubCarousel">
+          <div class="carousel-track">
+            <div class="carousel-slides">
+
+              <div class="carousel-slide">
+                <h3><a href="https://doi.org/10.1021/acsestair.6c00161" target="_blank" rel="noreferrer">Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors &mdash; Part 2: Mass Concentration-Based Assessment</a></h3>
+                <p class="authors">Malyan, V., Sahu, M., &amp; Nawale, P.</p>
+                <p class="venue">ACS ES&amp;T Air (2026)</p>
+                <figure class="figure">
+                  <img src="assets/ga-chamber-part2.png" alt="Graphical abstract: mass concentration assessment of low-cost PM sensors in a calibration chamber">
+                  <figcaption>Mass concentration-based assessment of low-cost PM sensors under controlled chamber conditions.</figcaption>
+                </figure>
+              </div>
+
+              <div class="carousel-slide">
+                <h3><a href="https://doi.org/10.1021/acsestair.5c00262" target="_blank" rel="noreferrer">Design and Evaluation of a Calibration Chamber for Low-Cost PM Sensors &mdash; Part 1: Number Concentration-Based Assessment</a></h3>
+                <p class="authors">Malyan, V., Nawale, P., &amp; Sahu, M.</p>
+                <p class="venue">ACS ES&amp;T Air (2025)</p>
+                <figure class="figure">
+                  <img src="assets/ga-chamber-part1.png" alt="Graphical abstract: number concentration assessment of low-cost PM sensors in a calibration chamber">
+                  <figcaption>Design of the 1.3&nbsp;m&sup3; calibration chamber and number concentration-based sensor evaluation.</figcaption>
+                </figure>
+              </div>
+
+              <div class="carousel-slide">
+                <h3><a href="https://doi.org/10.1016/j.jaerosci.2024.106437" target="_blank" rel="noreferrer">Assessing the Spatial Transferability of Calibration Models across a Low-cost Sensors Network</a></h3>
+                <p class="authors">Malyan, V., Kumar, V., Moni, M., Sahu, M., Prakash, J., Choudhary, S., Raliya, R., Chadha, T. S., Fang, J., &amp; Biswas, P.</p>
+                <p class="venue">Journal of Aerosol Science (2024)</p>
+                <figure class="figure">
+                  <img src="assets/ga-transferability.png" alt="Graphical abstract: spatial transferability of calibration models across a low-cost sensor network">
+                  <figcaption>Transferability of calibration models across sites in a low-cost sensor network.</figcaption>
+                </figure>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="carousel-nav">
+            <button class="carousel-btn" data-dir="-1" aria-label="Previous publication"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="carousel-dots" role="tablist" aria-label="Choose publication"></div>
+            <button class="carousel-btn" data-dir="1" aria-label="Next publication"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="publications.html"><i class="fa-solid fa-circle-arrow-right"></i> All publications</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </main>
@@ -109,6 +162,41 @@
 <footer>
   <div class="footer-wrap">&copy; 2026 Vasudev Malyan &bull; Built with GitHub Pages</div>
 </footer>
+
+<script>
+(function(){
+  var root = document.getElementById('pubCarousel');
+  if(!root) return;
+  var slides = root.querySelector('.carousel-slides');
+  var count  = slides.children.length;
+  var dots   = root.querySelector('.carousel-dots');
+  var i = 0;
+
+  for(var n = 0; n < count; n++){
+    var d = document.createElement('button');
+    d.className = 'carousel-dot';
+    d.setAttribute('role','tab');
+    d.setAttribute('aria-label','Publication ' + (n+1));
+    d.addEventListener('click', (function(k){ return function(){ go(k); }; })(n));
+    dots.appendChild(d);
+  }
+
+  function go(k){
+    i = (k + count) % count;
+    slides.style.transform = 'translateX(' + (-i * 100) + '%)';
+    var all = dots.children;
+    for(var n = 0; n < all.length; n++){
+      all[n].setAttribute('aria-selected', n === i ? 'true' : 'false');
+    }
+  }
+
+  root.querySelectorAll('.carousel-btn').forEach(function(b){
+    b.addEventListener('click', function(){ go(i + parseInt(b.dataset.dir, 10)); });
+  });
+
+  go(0);
+})();
+</script>
 
 </body>
 </html>
