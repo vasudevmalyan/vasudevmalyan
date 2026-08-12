@@ -11,7 +11,7 @@
   --text:#233041;
   --muted:#5a6a7d;
   --accent:#3A86FF;
-  --deep:#14458F;          /* dark blue for the hero / heading panels */
+  --deep:#233041;
   --border:#e7eef6;
   --chip:#F1F7FF;
   --radius:18px;
@@ -247,7 +247,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   height:380px;width:100%;object-fit:contain;object-position:center;background:#fff}
 
 /* ---------- two-column bottom panel (home) ---------- */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
 
 /* narrow column — no side gutters; arrows sit in the dots row */
 #liCarousel{padding:0}
@@ -263,6 +263,11 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .talks li:first-child{border-top:none;padding-top:0}
 .talks .what{display:block;font-size:15px;font-weight:600;line-height:1.45}
 .talks .where{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
+
+/* fill the column and spread the entries down it */
+.duo > .card{display:flex;flex-direction:column}
+.talks{list-style:none;margin:0;padding:0;flex:1 1 auto;
+  display:flex;flex-direction:column;justify-content:space-between}
 
 /* ---------- medium screens: seven nav links need tighter spacing ---------- */
 @media(max-width:1000px){
