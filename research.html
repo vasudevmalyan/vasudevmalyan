@@ -13,33 +13,37 @@
 
 <style>
   /* ---- publication carousel ----
-     Every slide is a fixed 560px, so the card never changes size as you
-     page through. The content is centred vertically inside that height,
-     so a slide with a one-line title reads as evenly padded rather than
-     leaving a gap at the bottom. Declared here so it loads after
-     style.css and cannot be overridden.
-
-     TO RESIZE: keep the two 560px values equal and move the 380px image
-     window by the same amount. */
+     Fixed 560px box. The figure takes all the space left under the
+     heading, and the image stretches to fill that figure completely —
+     no letterboxing, no gaps, every slide identical.
+     TO RESIZE: change the two 560px values together. */
   #pubCarousel .carousel-track{height:560px;overflow:hidden}
   #pubCarousel .carousel-slide{
     height:560px;overflow:hidden;
-    display:flex;flex-direction:column;justify-content:center}
+    display:flex;flex-direction:column}
 
-  #pubCarousel .carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
+  #pubCarousel .carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700;flex:0 0 auto}
   #pubCarousel .carousel-slide h3 a{color:var(--accent)}
-  #pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
-  #pubCarousel .carousel-slide .venue{margin:0 0 12px;font-size:15px;color:var(--muted);font-style:italic}
+  #pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:15px;flex:0 0 auto}
+  #pubCarousel .carousel-slide .venue{margin:0 0 12px;font-size:15px;color:var(--muted);font-style:italic;flex:0 0 auto}
 
-  #pubCarousel .carousel-slide .figure{flex:0 0 auto}
+  /* figure fills the remaining height */
+  #pubCarousel .carousel-slide .figure{
+    flex:1 1 auto;min-height:0;
+    display:flex;flex-direction:column}
+  /* image stretches to fill the figure edge to edge */
   #pubCarousel .carousel-slide .figure img{
-    height:380px;width:100%;
-    object-fit:contain;object-position:center;background:#fff}
+    flex:1 1 auto;min-height:0;
+    width:100%;height:100%;
+    object-fit:fill;
+    border-radius:8px;background:#fff}
+  #pubCarousel .carousel-slide .figure figcaption{flex:0 0 auto;margin-top:10px}
 
   @media(max-width:820px){
     #pubCarousel .carousel-track{height:auto}
     #pubCarousel .carousel-slide{height:auto;overflow:visible;display:block}
-    #pubCarousel .carousel-slide .figure img{height:200px}
+    #pubCarousel .carousel-slide .figure{display:block}
+    #pubCarousel .carousel-slide .figure img{height:auto;object-fit:initial}
   }
 </style>
 </head>
