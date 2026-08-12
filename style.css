@@ -49,6 +49,19 @@ p.lead{color:var(--muted);margin-top:0}
 .hero{padding-top:28px}
 .muted{color:var(--muted)}
 
+/* ---------- home page: intro paragraph, availability, stats ---------- */
+.lead-para{margin:0;font-size:16px;line-height:1.7}
+
+.seeking{display:flex;gap:12px;align-items:flex-start;background:#eef6ff;border:1px solid #cfe4ff;
+  border-radius:14px;padding:14px 16px;margin-top:18px;font-size:15px;line-height:1.55}
+.seeking i{color:var(--accent);font-size:16px;margin-top:3px;flex-shrink:0}
+
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat{background:var(--chip);border:1px solid var(--border);border-radius:14px;
+  padding:12px 18px;min-width:130px;flex:1 1 130px}
+.stat .num{display:block;font-size:24px;font-weight:700;line-height:1.15;color:var(--accent)}
+.stat .lbl{display:block;font-size:13px;color:var(--muted);margin-top:4px;line-height:1.4}
+
 /* ---------- chips ---------- */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .chip{background:var(--chip);border:1px solid var(--border);padding:8px 14px;border-radius:999px;color:#233041;font-size:16px}
@@ -186,11 +199,11 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 
 /* ---------- publication carousel ----------
    Same typography as .highlight; arrows sit in the gutters either side. */
-.carousel{position:relative;padding:0 40px}
+.carousel{position:relative;padding:0 54px}
 .carousel-track{overflow:hidden}
 .carousel-slides{display:flex;transition:transform .35s ease}
 .carousel-slide{min-width:100%;padding:2px}
-.carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700;min-height:52px}
+.carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
 .carousel-slide h3 a{color:var(--accent)}
 .carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
 .carousel-slide .venue{margin:0 0 14px;font-size:15px;color:var(--muted);font-style:italic}
@@ -198,7 +211,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 /* fixed image box so every slide is the same height regardless of the
    abstract's aspect ratio — contain scales it without cropping */
 .carousel-slide .figure img{
-  height:420px;
+  height:380px;
   width:100%;
   object-fit:contain;
   object-position:center;
@@ -236,7 +249,6 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .carousel-btn{position:static;transform:none}
   .carousel-dots{align-items:center;gap:12px}
   .carousel-slide .figure img{height:200px}
-  .carousel-slide h3{min-height:0}
 }
 @media(max-width:720px){
   nav{flex-wrap:wrap;gap:10px;padding:10px 16px}
@@ -245,6 +257,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   h1{font-size:30px}
   h2{font-size:22px}
   .wrap{padding:20px 16px}
+  .stat{min-width:calc(50% - 6px)}
 }
 @media(max-width:640px){
   /* stack the CV columns instead of squeezing them */
