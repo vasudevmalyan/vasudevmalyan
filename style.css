@@ -55,7 +55,7 @@ p.lead{color:var(--muted);margin-top:0}
 
 .seeking{display:flex;gap:12px;align-items:flex-start;background:#eef6ff;border:1px solid #cfe4ff;
   border-radius:14px;padding:14px 16px;margin-top:18px;font-size:15px;line-height:1.55}
-.seeking i{color:var(--accent);font-size:16px;margin-top:3px;flex-shrink:0}
+.seeking i{color:var(--deep);font-size:16px;margin-top:3px;flex-shrink:0}
 
 /* ---------- at a glance: circles ---------- */
 .glance{display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
