@@ -95,7 +95,12 @@ p.lead{color:var(--muted);margin-top:0}
 
 /* ---------- footer ---------- */
 footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
-.footer-wrap{max-width:var(--max);margin:auto}
+.footer-wrap {
+  text-align: right;         /* Pushes the text to the right */
+  max-width: 1200px;         /* Change this number to match the max-width of your main content */
+  margin: 0 auto;            /* This centers the invisible footer box on the page */
+  padding: 20px;             /* Adds a little breathing room so it doesn't touch the absolute edge */
+}
 
 /* ---------- dark card (hero, page headings) ---------- */
 .card.dark{background:var(--deep);border-color:var(--deep);color:#fff}
