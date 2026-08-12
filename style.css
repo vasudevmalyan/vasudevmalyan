@@ -226,13 +226,20 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .carousel-slides{display:flex;transition:transform .35s ease}
 .carousel-slide{min-width:100%;padding:2px}
 
+/* UPDATED BUTTON STYLES HERE */
 .carousel-btn{
   position:absolute;top:50%;transform:translateY(-50%);
   width:40px;height:40px;border-radius:50%;
-  background:#fff;border:1px solid var(--border);box-shadow:var(--shadow);
+  background:#1e3a63;
+  border:none;
+  outline:none;
+  box-shadow:var(--shadow);
   display:flex;align-items:center;justify-content:center;
-  color:#1f3b63;font-size:15px;cursor:pointer;z-index:2}
-.carousel-btn:hover{background:#f4f8ff}
+  color:#ffffff;font-size:15px;cursor:pointer;z-index:2;
+  transition:background-color 0.2s ease-in-out;
+}
+.carousel-btn:hover{background:#132745}
+
 .carousel-btn.prev{left:0}
 .carousel-btn.next{right:0}
 
