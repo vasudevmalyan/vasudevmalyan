@@ -200,7 +200,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .carousel-slide .figure img{
   height:420px;
   width:100%;
-  object-fit:contain;
+  object-fit:cover;
   object-position:center;
   background:#fff}
 
