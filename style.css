@@ -245,7 +245,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 
 .carousel-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:#cbd9ea;border:none;padding:0;cursor:pointer}
-.carousel-dot[aria-selected="true"]{background:var(--accent)}
+.carousel-dot[aria-selected="true"]{background:#1e3a63}
 
 /* ---------- publication carousel (research page) ----------
    NOTE: research.html carries the same rules in a page-level <style>
