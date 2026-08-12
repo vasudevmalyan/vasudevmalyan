@@ -154,7 +154,29 @@
 
         <div class="card">
           <h2>Talks &amp; Outreach</h2>
-          <ul class="talks">
+          
+          <!-- Added max-height and overflow-y to keep the box size fixed and scrollable -->
+          <ul class="talks" style="max-height: 400px; overflow-y: auto; padding-right: 15px;">
+            
+            <!-- New Item 1 with Image -->
+            <li style="display: flex; justify-content: space-between; align-items: center; gap: 15px;">
+              <div>
+                <span class="what">Academic Symposium</span>
+                <span class="where">IIT Gandhinagar &bull; 2025</span>
+              </div>
+              <img src="assets/symposium-photo.jpg" alt="IIT Gandhinagar Symposium" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0;">
+            </li>
+        
+            <!-- New Item 2 with Image -->
+            <li style="display: flex; justify-content: space-between; align-items: center; gap: 15px;">
+              <div>
+                <span class="what">Air Quality Management &amp; PM2.5 Sensor Project Exhibition</span>
+                <span class="where">IIT Bombay</span>
+              </div>
+              <img src="assets/exhibition-photo.jpg" alt="Project Exhibition" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0;">
+            </li>
+        
+            <!-- Original Items -->
             <li>
               <span class="what">ANTL Symposium on Low-cost Air Quality Sensing</span>
               <span class="where">IIT Bombay</span>
