@@ -64,17 +64,19 @@
     transform:translateY(-50%);
     width:38px;height:38px;
     display:flex;align-items:center;justify-content:center;
-    border:1px solid var(--border);
+    border:none;
+    outline:none;
     border-radius:50%;
-    background:#fff;
+    background:#1e3a63;
     box-shadow:var(--shadow);
-    color:#405167;
+    color:#ffffff;
     cursor:pointer;
     z-index:5;
     font-size:15px;
     padding:0;
+    transition: background-color 0.2s ease-in-out;
   }
-  .arrow:hover{background:#f4f8ff}
+  .arrow:hover{background:#132745}
   .arrow.prev{left:-14px}
   .arrow.next{right:-14px}
   .arrow[disabled]{opacity:.35;cursor:default}
@@ -206,14 +208,16 @@
         </table>
       </div>
 
-      <!-- ---------- photo gallery ----------
-           To add a photo: copy one <figure class="slide"> block,
-           change the filename and the caption. Upload the image
-           into the assets folder with the exact same filename. -->
+      <!-- ---------- photo gallery ---------- -->
       <div class="card">
         <h2>Photo Gallery</h2>
         <div class="carousel">
-          <button class="arrow prev" type="button" aria-label="Previous photo">&#8249;</button>
+          <button class="arrow prev" type="button" aria-label="Previous photo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
 
           <div class="track" id="track">
 
@@ -249,7 +253,12 @@
 
           </div>
 
-          <button class="arrow next" type="button" aria-label="Next photo">&#8250;</button>
+          <button class="arrow next" type="button" aria-label="Next photo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
       <!-- NEW FOOTER PLACEMENT: Insert it here, before the final closing tags -->
