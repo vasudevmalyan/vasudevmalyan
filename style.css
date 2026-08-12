@@ -11,6 +11,7 @@
   --text:#233041;
   --muted:#5a6a7d;
   --accent:#3A86FF;
+  --deep:#14458F;          /* dark blue for the hero / heading panels */
   --border:#e7eef6;
   --chip:#F1F7FF;
   --radius:18px;
@@ -56,16 +57,16 @@ p.lead{color:var(--muted);margin-top:0}
   border-radius:14px;padding:14px 16px;margin-top:18px;font-size:15px;line-height:1.55}
 .seeking i{color:var(--accent);font-size:16px;margin-top:3px;flex-shrink:0}
 
-/* ---------- at a glance: blue circles ---------- */
-.glance{display:flex;flex-wrap:wrap;gap:24px;margin-top:4px}
-.glance-item{display:flex;flex-direction:column;align-items:center;width:150px}
+/* ---------- at a glance: circles ---------- */
+.glance{display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
+.glance-item{display:flex;flex-direction:column;align-items:center;width:calc(25% - 17px)}
 .glance-circle{
   width:98px;height:98px;border-radius:50%;
   background:var(--accent);color:#fff;
   display:flex;align-items:center;justify-content:center;
   font-size:32px;font-weight:700;letter-spacing:-.5px;
   box-shadow:0 6px 18px rgba(58,134,255,.32)}
-.glance-circle.sm{font-size:19px;letter-spacing:0}
+.glance-circle.sm{font-size:18px;letter-spacing:0;text-align:center;line-height:1.2;padding:0 8px}
 .glance-label{margin-top:12px;text-align:center;font-size:14px;color:var(--muted);line-height:1.4}
 
 /* ---------- news thread ---------- */
@@ -75,8 +76,7 @@ p.lead{color:var(--muted);margin-top:0}
 .thread li:last-child{padding-bottom:0}
 .thread li::before{content:"";position:absolute;left:2px;top:4px;width:16px;height:16px;border-radius:50%;
   background:#fff;border:3px solid var(--accent);z-index:1}
-.thread .when{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:3px;
-  letter-spacing:.2px}
+.thread .when{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:3px;letter-spacing:.2px}
 .thread .what{display:block;font-size:16px;font-weight:600;line-height:1.45}
 .thread .detail{margin:5px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
 
@@ -97,12 +97,12 @@ p.lead{color:var(--muted);margin-top:0}
 footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .footer-wrap{max-width:var(--max);margin:auto}
 
-/* ---------- dark card (hero, About Me) ---------- */
-.card.dark{background:var(--text);border-color:var(--text);color:#fff}
+/* ---------- dark card (hero, page headings) — deep blue ---------- */
+.card.dark{background:var(--deep);border-color:var(--deep);color:#fff}
 .card.dark h1,.card.dark h2,.card.dark h3{color:#fff}
-.card.dark p{color:#dbe4ef}
+.card.dark p{color:#dbe6f7}
 .card.dark strong{color:#fff}
-.card.dark a:not(.btn){color:#8fc0ff}
+.card.dark a:not(.btn){color:#a8ccff}
 
 /* ---------- hero: photo beside the text, inside the dark card ---------- */
 .hero-card{display:flex;align-items:center;gap:30px}
@@ -231,14 +231,14 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .carousel-btn.prev{left:0}
 .carousel-btn.next{right:0}
 
-.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.carousel-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:#cbd9ea;border:none;padding:0;cursor:pointer}
 .carousel-dot[aria-selected="true"]{background:var(--accent)}
 
 /* ---------- publication carousel (research page) ----------
-   Same typography as .highlight. Fixed slide height so every slide
-   is identical regardless of title length or abstract aspect ratio. */
-#pubCarousel .carousel-slide{min-width:100%;padding:2px;min-height:600px}
+   Fixed slide height so every slide is identical regardless of
+   title length or graphical-abstract aspect ratio. */
+#pubCarousel .carousel-slide{min-height:600px}
 #pubCarousel .carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
 #pubCarousel .carousel-slide h3 a{color:var(--accent)}
 #pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
@@ -246,16 +246,32 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 #pubCarousel .carousel-slide .figure img{
   height:380px;width:100%;object-fit:contain;object-position:center;background:#fff}
 
-/* ---------- LinkedIn post carousel (home page) ---------- */
+/* ---------- two-column bottom panel (home) ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+
+/* narrow column — no side gutters; arrows sit in the dots row */
+#liCarousel{padding:0}
+#liCarousel .carousel-btn{position:static;transform:none;width:34px;height:34px;font-size:13px}
+#liCarousel .carousel-dots{gap:12px}
 .li-slide{display:flex;justify-content:center}
-.li-slide iframe{
-  width:100%;max-width:560px;height:560px;border:1px solid var(--border);
-  border-radius:14px;background:#fff;display:block}
+.li-slide iframe{width:100%;height:520px;border:1px solid var(--border);border-radius:14px;
+  background:#fff;display:block}
+
+/* talks list */
+.talks{list-style:none;margin:0;padding:0}
+.talks li{padding:12px 0;border-top:1px solid var(--border)}
+.talks li:first-child{border-top:none;padding-top:0}
+.talks .what{display:block;font-size:15px;font-weight:600;line-height:1.45}
+.talks .where{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
 
 /* ---------- medium screens: seven nav links need tighter spacing ---------- */
 @media(max-width:1000px){
   .links a{padding:8px 7px;font-size:15px}
   nav{gap:12px}
+}
+
+@media(max-width:900px){
+  .duo{grid-template-columns:1fr}
 }
 
 /* ---------- small screens ---------- */
@@ -268,8 +284,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   /* no room for side gutters — arrows drop down beside the dots */
   .carousel{padding:0}
   .carousel-btn{position:static;transform:none}
-  .carousel-dots{align-items:center;gap:12px}
-  .carousel-slide{min-height:0}
+  .carousel-dots{gap:12px}
 
   #pubCarousel .carousel-slide{min-height:0}
   #pubCarousel .carousel-slide .figure img{height:200px}
@@ -284,7 +299,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .glance{gap:18px;justify-content:center}
   .glance-item{width:calc(50% - 9px)}
   .glance-circle{width:84px;height:84px;font-size:27px}
-  .glance-circle.sm{font-size:17px}
+  .glance-circle.sm{font-size:16px}
 }
 @media(max-width:640px){
   /* stack the CV columns instead of squeezing them */
