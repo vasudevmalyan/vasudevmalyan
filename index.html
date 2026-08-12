@@ -78,27 +78,14 @@
       <div class="card">
         <h2>At a glance</h2>
         <div class="glance">
-
-          <div class="glance-item">
-            <div class="glance-circle">12</div>
-            <span class="glance-label">Peer-reviewed papers</span>
-          </div>
-
-          <div class="glance-item">
-            <div class="glance-circle">5</div>
-            <span class="glance-label">First-authored</span>
-          </div>
-
-          <div class="glance-item">
-            <div class="glance-circle">7</div>
-            <span class="glance-label">Years on urban air pollution</span>
-          </div>
-
-          <div class="glance-item">
-            <div class="glance-circle sm">PMRF</div>
-            <span class="glance-label">Prime Minister's Research Fellow</span>
-          </div>
-
+          <div class="glance-item"><div class="glance-circle">12</div><span class="glance-label">Peer-reviewed papers</span></div>
+          <div class="glance-item"><div class="glance-circle">5</div><span class="glance-label">First-authored</span></div>
+          <div class="glance-item"><div class="glance-circle">7</div><span class="glance-label">Years on urban air pollution</span></div>
+          <div class="glance-item"><div class="glance-circle sm">PMRF</div><span class="glance-label">Prime Minister's Research Fellow</span></div>
+          <div class="glance-item"><div class="glance-circle">1</div><span class="glance-label">Springer book chapter</span></div>
+          <div class="glance-item"><div class="glance-circle sm">T20</div><span class="glance-label">Policy brief for the G20</span></div>
+          <div class="glance-item"><div class="glance-circle">5</div><span class="glance-label">Courses taught as TA</span></div>
+          <div class="glance-item"><div class="glance-circle">33</div><span class="glance-label">Guest lectures delivered</span></div>
         </div>
       </div>
 
@@ -146,44 +133,65 @@
         </ul>
       </div>
 
-      <!-- ---------- LinkedIn posts carousel ----------
-           To add a post: open it on LinkedIn → the "..." menu → "Embed this post"
-           → copy the iframe → paste it in place of one below. Keep the
-           surrounding <div class="carousel-slide li-slide"> wrapper. -->
-      <div class="card">
-        <h2>Recent on LinkedIn</h2>
+      <!-- ---------- bottom panel: LinkedIn + talks ---------- -->
+      <div class="duo">
 
-        <div class="carousel" id="liCarousel">
+        <!-- To add a post: open it on LinkedIn → the "..." menu on the post →
+             "Embed this post" → paste the iframe here, keeping the wrapper div. -->
+        <div class="card">
+          <h2>Recent on LinkedIn</h2>
 
-          <button class="carousel-btn prev" data-dir="-1" aria-label="Previous post"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next" data-dir="1" aria-label="Next post"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel" id="liCarousel">
+            <div class="carousel-track">
+              <div class="carousel-slides">
 
-          <div class="carousel-track">
-            <div class="carousel-slides">
+                <div class="carousel-slide li-slide">
+                  <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:PASTE_ID_1"
+                          height="520" width="100%" frameborder="0" allowfullscreen title="LinkedIn post"></iframe>
+                </div>
 
-              <div class="carousel-slide li-slide">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:PASTE_ID_1"
-                        height="560" width="100%" frameborder="0" allowfullscreen
-                        title="LinkedIn post"></iframe>
+                <div class="carousel-slide li-slide">
+                  <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:PASTE_ID_2"
+                          height="520" width="100%" frameborder="0" allowfullscreen title="LinkedIn post"></iframe>
+                </div>
+
+                <div class="carousel-slide li-slide">
+                  <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:PASTE_ID_3"
+                          height="520" width="100%" frameborder="0" allowfullscreen title="LinkedIn post"></iframe>
+                </div>
+
               </div>
+            </div>
 
-              <div class="carousel-slide li-slide">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:PASTE_ID_2"
-                        height="560" width="100%" frameborder="0" allowfullscreen
-                        title="LinkedIn post"></iframe>
-              </div>
-
-              <div class="carousel-slide li-slide">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:PASTE_ID_3"
-                        height="560" width="100%" frameborder="0" allowfullscreen
-                        title="LinkedIn post"></iframe>
-              </div>
-
+            <div class="carousel-dots" role="tablist" aria-label="Choose post">
+              <button class="carousel-btn prev" data-dir="-1" aria-label="Previous post"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="carousel-btn next" data-dir="1" aria-label="Next post"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
           </div>
-
-          <div class="carousel-dots" role="tablist" aria-label="Choose post"></div>
         </div>
+
+        <div class="card">
+          <h2>Talks &amp; Outreach</h2>
+          <ul class="talks">
+            <li>
+              <span class="what">ANTL Symposium on Low-cost Air Quality Sensing</span>
+              <span class="where">IIT Bombay</span>
+            </li>
+            <li>
+              <span class="what">Guest lecture series on Environmental Chemistry</span>
+              <span class="where">Amicable Knowledge Solution University &bull; 32 lectures, 2024</span>
+            </li>
+            <li>
+              <span class="what">Air Pollution Control Technologies (ESP and baghouse filters)</span>
+              <span class="where">Guest lecture, ES317, IIT Bombay &bull; 2022</span>
+            </li>
+            <li>
+              <span class="what">Institute-level workshop on data analysis in MS Excel</span>
+              <span class="where">IIT Bombay &bull; ~250 attendees, 2020</span>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
     </div>
@@ -201,6 +209,8 @@
   var slides = root.querySelector('.carousel-slides');
   var count  = slides.children.length;
   var dots   = root.querySelector('.carousel-dots');
+  var btns   = root.querySelectorAll('.carousel-btn');
+  var made   = [];
   var i = 0;
 
   for(var n = 0; n < count; n++){
@@ -209,19 +219,20 @@
     d.setAttribute('role','tab');
     d.setAttribute('aria-label','Post ' + (n+1));
     d.addEventListener('click', (function(k){ return function(){ go(k); }; })(n));
-    dots.appendChild(d);
+    // dots sit between the prev and next buttons
+    dots.insertBefore(d, btns[1]);
+    made.push(d);
   }
 
   function go(k){
     i = (k + count) % count;
     slides.style.transform = 'translateX(' + (-i * 100) + '%)';
-    var all = dots.children;
-    for(var n = 0; n < all.length; n++){
-      all[n].setAttribute('aria-selected', n === i ? 'true' : 'false');
+    for(var n = 0; n < made.length; n++){
+      made[n].setAttribute('aria-selected', n === i ? 'true' : 'false');
     }
   }
 
-  root.querySelectorAll('.carousel-btn').forEach(function(b){
+  btns.forEach(function(b){
     b.addEventListener('click', function(){ go(i + parseInt(b.dataset.dir, 10)); });
   });
 
