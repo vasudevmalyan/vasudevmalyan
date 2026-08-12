@@ -71,11 +71,11 @@ p.lead{color:var(--muted);margin-top:0}
 
 /* ---------- news thread ---------- */
 .thread{list-style:none;margin:0;padding:0;position:relative}
-.thread::before{content:"";position:absolute;left:9px;top:10px;bottom:10px;width:2px;background:var(--border)}
+.thread::before{content:"";position:absolute;left:12px;top:12px;bottom:12px;width:2px;background:#c3d0e0}
 .thread li{position:relative;padding:0 0 24px 36px}
 .thread li:last-child{padding-bottom:0}
 .thread li::before{content:"";position:absolute;left:2px;top:4px;width:16px;height:16px;border-radius:50%;
-  background:#fff;border:3px solid var(--accent);z-index:1}
+  background:#fff;border:3px solid var(--deep);z-index:1}
 .thread .when{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:3px;letter-spacing:.2px}
 .thread .what{display:block;font-size:16px;font-weight:600;line-height:1.45}
 .thread .detail{margin:5px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
