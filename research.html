@@ -12,28 +12,31 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-  /* ---- carousel height lock ----
-     Declared here so it loads after style.css and cannot be overridden.
-     A hard height on the track means nothing inside can stretch or shrink
-     the box: every slide is exactly the same size.
+  /* ---- publication carousel ----
+     The three graphical abstracts have different aspect ratios, so no single
+     fixed height fits all of them: it either clips the tall one or leaves a
+     void under the wide ones. Instead the images display at their natural
+     size (full width, auto height) and the script below animates the track
+     to the height of whichever slide is showing. No blank space, no clipping.
+     Declared here so it loads after style.css and cannot be overridden. */
+  #pubCarousel .carousel-track{
+    height:auto;
+    transition:height .35s ease;
+    overflow:hidden}
+  #pubCarousel .carousel-slides{align-items:flex-start}
+  #pubCarousel .carousel-slide{height:auto;overflow:visible}
 
-     TO RESIZE: change the two 460px values together (they must match),
-     and move the image height by roughly the same amount. */
-  #pubCarousel .carousel-track{height:460px}
-  #pubCarousel .carousel-slide{height:460px;overflow:hidden}
-  #pubCarousel .carousel-slide h3{font-size:18px;line-height:1.35;margin:0 0 5px;font-weight:700}
+  #pubCarousel .carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
   #pubCarousel .carousel-slide h3 a{color:var(--accent)}
-  #pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:14px}
-  #pubCarousel .carousel-slide .venue{margin:0 0 10px;font-size:14px;color:var(--muted);font-style:italic}
-  #pubCarousel .carousel-slide .figure{padding:10px}
-  #pubCarousel .carousel-slide .figure img{
-    height:260px;width:100%;object-fit:contain;object-position:center;background:#fff}
-  #pubCarousel .carousel-slide .figure figcaption{margin-top:8px;font-size:13px}
+  #pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
+  #pubCarousel .carousel-slide .venue{margin:0 0 12px;font-size:15px;color:var(--muted);font-style:italic}
 
-  @media(max-width:820px){
-    #pubCarousel .carousel-track{height:auto}
-    #pubCarousel .carousel-slide{height:auto;overflow:visible}
-    #pubCarousel .carousel-slide .figure img{height:200px}
+  /* natural size — the abstract fills the full width of the card */
+  #pubCarousel .carousel-slide .figure img{
+    width:100%;height:auto;display:block;border-radius:8px}
+
+  @media(prefers-reduced-motion:reduce){
+    #pubCarousel .carousel-track{transition:none}
   }
 </style>
 </head>
@@ -193,8 +196,11 @@
 (function(){
   var root = document.getElementById('pubCarousel');
   if(!root) return;
+
+  var track  = root.querySelector('.carousel-track');
   var slides = root.querySelector('.carousel-slides');
-  var count  = slides.children.length;
+  var items  = slides.children;
+  var count  = items.length;
   var dots   = root.querySelector('.carousel-dots');
   var i = 0;
 
@@ -207,6 +213,11 @@
     dots.appendChild(d);
   }
 
+  // match the track to the slide on show, so there is never a gap below it
+  function fit(){
+    track.style.height = items[i].offsetHeight + 'px';
+  }
+
   function go(k){
     i = (k + count) % count;
     slides.style.transform = 'translateX(' + (-i * 100) + '%)';
@@ -214,11 +225,19 @@
     for(var n = 0; n < all.length; n++){
       all[n].setAttribute('aria-selected', n === i ? 'true' : 'false');
     }
+    fit();
   }
 
   root.querySelectorAll('.carousel-btn').forEach(function(b){
     b.addEventListener('click', function(){ go(i + parseInt(b.dataset.dir, 10)); });
   });
+
+  // images arrive after the HTML, so remeasure as each one loads
+  root.querySelectorAll('img').forEach(function(img){
+    if(!img.complete) img.addEventListener('load', fit);
+  });
+  window.addEventListener('load', fit);
+  window.addEventListener('resize', fit);
 
   go(0);
 })();
