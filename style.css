@@ -49,18 +49,36 @@ p.lead{color:var(--muted);margin-top:0}
 .hero{padding-top:28px}
 .muted{color:var(--muted)}
 
-/* ---------- home page: intro paragraph, availability, stats ---------- */
+/* ---------- home: intro paragraph & availability note ---------- */
 .lead-para{margin:0;font-size:16px;line-height:1.7}
 
 .seeking{display:flex;gap:12px;align-items:flex-start;background:#eef6ff;border:1px solid #cfe4ff;
   border-radius:14px;padding:14px 16px;margin-top:18px;font-size:15px;line-height:1.55}
 .seeking i{color:var(--accent);font-size:16px;margin-top:3px;flex-shrink:0}
 
-.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-.stat{background:var(--chip);border:1px solid var(--border);border-radius:14px;
-  padding:12px 18px;min-width:130px;flex:1 1 130px}
-.stat .num{display:block;font-size:24px;font-weight:700;line-height:1.15;color:var(--accent)}
-.stat .lbl{display:block;font-size:13px;color:var(--muted);margin-top:4px;line-height:1.4}
+/* ---------- at a glance: blue circles ---------- */
+.glance{display:flex;flex-wrap:wrap;gap:24px;margin-top:4px}
+.glance-item{display:flex;flex-direction:column;align-items:center;width:150px}
+.glance-circle{
+  width:98px;height:98px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;font-weight:700;letter-spacing:-.5px;
+  box-shadow:0 6px 18px rgba(58,134,255,.32)}
+.glance-circle.sm{font-size:19px;letter-spacing:0}
+.glance-label{margin-top:12px;text-align:center;font-size:14px;color:var(--muted);line-height:1.4}
+
+/* ---------- news thread ---------- */
+.thread{list-style:none;margin:0;padding:0;position:relative}
+.thread::before{content:"";position:absolute;left:9px;top:10px;bottom:10px;width:2px;background:var(--border)}
+.thread li{position:relative;padding:0 0 24px 36px}
+.thread li:last-child{padding-bottom:0}
+.thread li::before{content:"";position:absolute;left:2px;top:4px;width:16px;height:16px;border-radius:50%;
+  background:#fff;border:3px solid var(--accent);z-index:1}
+.thread .when{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:3px;
+  letter-spacing:.2px}
+.thread .what{display:block;font-size:16px;font-weight:600;line-height:1.45}
+.thread .detail{margin:5px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
 
 /* ---------- chips ---------- */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
@@ -134,7 +152,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .cv-table tr:first-child td{border-top:none}
 .cv-table .yr{width:1%;color:var(--muted);font-weight:600;font-size:14px;white-space:nowrap;padding-right:32px}
 
-/* ---------- simple entries (projects, conferences, news) ---------- */
+/* ---------- simple entries (projects, conferences) ---------- */
 .entry strong{font-size:16px}
 .entry .meta{display:block;font-size:15px;margin-top:2px}
 .entry .note{display:block;color:var(--muted);font-size:14px;margin-top:2px}
@@ -197,25 +215,11 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .split--reverse .split-fig{order:2}
 .split--reverse .split-text{order:1}
 
-/* ---------- publication carousel ----------
-   Same typography as .highlight; arrows sit in the gutters either side. */
+/* ---------- carousel (shared shell) ---------- */
 .carousel{position:relative;padding:0 54px}
 .carousel-track{overflow:hidden}
 .carousel-slides{display:flex;transition:transform .35s ease}
 .carousel-slide{min-width:100%;padding:2px}
-.carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
-.carousel-slide h3 a{color:var(--accent)}
-.carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
-.carousel-slide .venue{margin:0 0 14px;font-size:15px;color:var(--muted);font-style:italic}
-
-/* fixed image box so every slide is the same height regardless of the
-   abstract's aspect ratio — contain scales it without cropping */
-.carousel-slide .figure img{
-  height:380px;
-  width:100%;
-  object-fit:contain;
-  object-position:center;
-  background:#fff}
 
 .carousel-btn{
   position:absolute;top:50%;transform:translateY(-50%);
@@ -230,6 +234,23 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:#cbd9ea;border:none;padding:0;cursor:pointer}
 .carousel-dot[aria-selected="true"]{background:var(--accent)}
+
+/* ---------- publication carousel (research page) ----------
+   Same typography as .highlight. Fixed slide height so every slide
+   is identical regardless of title length or abstract aspect ratio. */
+#pubCarousel .carousel-slide{min-width:100%;padding:2px;min-height:600px}
+#pubCarousel .carousel-slide h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
+#pubCarousel .carousel-slide h3 a{color:var(--accent)}
+#pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:15px}
+#pubCarousel .carousel-slide .venue{margin:0 0 14px;font-size:15px;color:var(--muted);font-style:italic}
+#pubCarousel .carousel-slide .figure img{
+  height:380px;width:100%;object-fit:contain;object-position:center;background:#fff}
+
+/* ---------- LinkedIn post carousel (home page) ---------- */
+.li-slide{display:flex;justify-content:center}
+.li-slide iframe{
+  width:100%;max-width:560px;height:560px;border:1px solid var(--border);
+  border-radius:14px;background:#fff;display:block}
 
 /* ---------- medium screens: seven nav links need tighter spacing ---------- */
 @media(max-width:1000px){
@@ -248,7 +269,10 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .carousel{padding:0}
   .carousel-btn{position:static;transform:none}
   .carousel-dots{align-items:center;gap:12px}
-  .carousel-slide .figure img{height:200px}
+  .carousel-slide{min-height:0}
+
+  #pubCarousel .carousel-slide{min-height:0}
+  #pubCarousel .carousel-slide .figure img{height:200px}
 }
 @media(max-width:720px){
   nav{flex-wrap:wrap;gap:10px;padding:10px 16px}
@@ -257,7 +281,10 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   h1{font-size:30px}
   h2{font-size:22px}
   .wrap{padding:20px 16px}
-  .stat{min-width:calc(50% - 6px)}
+  .glance{gap:18px;justify-content:center}
+  .glance-item{width:calc(50% - 9px)}
+  .glance-circle{width:84px;height:84px;font-size:27px}
+  .glance-circle.sm{font-size:17px}
 }
 @media(max-width:640px){
   /* stack the CV columns instead of squeezing them */
