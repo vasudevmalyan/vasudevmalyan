@@ -246,6 +246,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 #pubCarousel .carousel-slide .venue{margin:0 0 14px;font-size:15px;color:var(--muted);font-style:italic}
 #pubCarousel .carousel-slide .figure img{
   height:380px;width:100%;object-fit:contain;object-position:center;background:#fff}
+#pubCarousel .carousel-track{height:600px}
 
 /* ---------- two-column bottom panel (home) ---------- */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
@@ -291,6 +292,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 
   #pubCarousel .carousel-slide{min-height:0}
   #pubCarousel .carousel-slide .figure img{height:200px}
+  #pubCarousel .carousel-track{height:auto}
 }
 @media(max-width:720px){
   nav{flex-wrap:wrap;gap:10px;padding:10px 16px}
