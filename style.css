@@ -1,50 +1,134 @@
 /* =================================================================
    Vasudev Malyan — shared stylesheet
    Linked by all seven pages.
+
+   COLOUR SYSTEM
+   -------------
+   1. A fixed six-colour spectrum palette (--s1 … --s6) used for
+      anything that should feel varied: chips, timeline dots, list
+      rails, bullets.
+   2. A per-page accent set on <body class="page-…">:
+        --c        solid accent (fills, rules, dots)
+        --c-ink    darkened accent, safe for text on white
+        --c-soft   very light tint for backgrounds
+        --hero1/2/3  the three stops of that page's dark hero card
+      Change a page's personality by editing one block below.
+   3. Brand colours live on .btn variants (--b) so every external
+      link carries its own logo colour.
    ================================================================= */
 
 :root{
+  /* spectrum — scattered light, used across the whole site */
+  --s1:#2F6FED;   /* blue    */
+  --s2:#0FA3B1;   /* teal    */
+  --s3:#1FA363;   /* green   */
+  --s4:#E8930C;   /* amber   */
+  --s5:#EF5B5B;   /* coral   */
+  --s6:#6B4EE6;   /* violet  */
+
+  --s1-ink:#1B4FD0; --s1-soft:#E9F0FE;
+  --s2-ink:#0A7C87; --s2-soft:#E2F6F8;
+  --s3-ink:#0E7A4A; --s3-soft:#E4F6ED;
+  --s4-ink:#9A5B00; --s4-soft:#FDF2DE;
+  --s5-ink:#C22F3E; --s5-soft:#FDEBEB;
+  --s6-ink:#5A3AD6; --s6-soft:#EEEAFD;
+
   --bg:#ffffff;
-  --grad1:#EAF6FF;
-  --grad2:#F8F9FF;
   --card:#ffffff;
-  --text:#233041;
+  --text:#1B2636;
   --muted:#5a6a7d;
-  --accent:#3A86FF;
-  --deep:#233041;
-  --border:#e7eef6;
-  --chip:#F1F7FF;
+  --deep:#131E33;
+  --border:#e6edf5;
   --radius:18px;
   --shadow:0 8px 24px rgba(21,40,76,.08);
   --max:1100px;
 }
+
+/* ---------- per-page accents ---------- */
+body{
+  --c:var(--s1); --c-ink:var(--s1-ink); --c-soft:var(--s1-soft);
+  --hero1:#101B33; --hero2:#1B3A6B; --hero3:#0F6E7D;
+}
+body.page-about{
+  --c:var(--s6); --c-ink:var(--s6-ink); --c-soft:var(--s6-soft);
+  --hero1:#171238; --hero2:#3A2C86; --hero3:#6B4EE6;
+}
+body.page-research{
+  --c:var(--s2); --c-ink:var(--s2-ink); --c-soft:var(--s2-soft);
+  --hero1:#07202E; --hero2:#0B4A63; --hero3:#12A6B4;
+}
+body.page-publications{
+  --c:#8B4EC6; --c-ink:#7A3BB0; --c-soft:#F2E9FA;
+  --hero1:#1A1030; --hero2:#4A2A7A; --hero3:#8B4EC6;
+}
+body.page-teaching{
+  --c:var(--s4); --c-ink:var(--s4-ink); --c-soft:var(--s4-soft);
+  --hero1:#2A1608; --hero2:#7A3E10; --hero3:#E8930C;
+}
+body.page-beyond{
+  --c:var(--s5); --c-ink:var(--s5-ink); --c-soft:var(--s5-soft);
+  --hero1:#2E0F1C; --hero2:#7A2540; --hero3:#EF5B5B;
+}
+body.page-contact{
+  --c:var(--s3); --c-ink:var(--s3-ink); --c-soft:var(--s3-soft);
+  --hero1:#062319; --hero2:#0B5A3F; --hero3:#1FA363;
+}
+/* legacy alias — older rules referenced --accent */
+body{--accent:var(--c-ink)}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);
-  background:linear-gradient(180deg,var(--grad1),var(--grad2));}
-a{color:var(--accent);text-decoration:none}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background-color:#fbfcff;
+  /* soft scattering blooms — the page never reads as flat grey */
+  background-image:
+    radial-gradient(680px 460px at 8% -6%,  rgba(47,111,237,.16), transparent 62%),
+    radial-gradient(620px 420px at 96% 4%,  rgba(15,163,177,.15), transparent 62%),
+    radial-gradient(720px 520px at 78% 52%, rgba(107,78,230,.10), transparent 64%),
+    radial-gradient(640px 440px at 4% 82%,  rgba(232,147,12,.10), transparent 64%);
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+}
+
+a{color:var(--c-ink);text-decoration:none}
 a:hover{text-decoration:underline}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+a:focus-visible{outline:2px solid var(--c);outline-offset:3px;border-radius:4px}
 
 /* ---------- header & navigation ---------- */
-header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);
-  backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.88);
+  backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--border)}
+/* spectrum hairline — ties the palette together on every page */
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;
+  background:linear-gradient(90deg,var(--s1),var(--s2),var(--s3),var(--s4),var(--s5),var(--s6))}
+
 nav{max-width:var(--max);margin:auto;display:flex;align-items:center;justify-content:space-between;
   gap:16px;padding:12px 20px}
 .brand{display:flex;flex-direction:column;gap:2px}
 .brand .title{font-weight:700;color:var(--text);font-size:17px}
-.brand a.title:hover{text-decoration:none;color:var(--accent)}
-.brand .sub{font-size:13px;color:var(--muted);font-weight:500}
-.links a{padding:8px 10px;border-radius:10px;color:#405167}
-.links a:hover{background:#edf4ff}
-.links a.active{background:#dfeeff}
+.brand a.title:hover{text-decoration:none;color:var(--c-ink)}
+.brand .sub{font-size:13px;color:var(--muted);font-weight:500;
+  background:linear-gradient(90deg,var(--s1-ink),var(--s2-ink) 45%,var(--s6-ink));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.links a{padding:8px 10px;border-radius:10px;color:#41536b;font-weight:500;transition:background .15s,color .15s}
+.links a:hover{background:var(--c-soft);color:var(--c-ink);text-decoration:none}
+.links a.active{background:var(--c-soft);color:var(--c-ink);font-weight:600;
+  box-shadow:inset 0 -2px 0 var(--c)}
 
 /* ---------- layout ---------- */
 .wrap{max-width:var(--max);margin:auto;padding:28px 20px}
 .grid{display:grid;gap:20px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-h1{font-size:38px;line-height:1.2;margin:0 0 10px}
-h2{font-size:26px;margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px}
+h1{font-size:38px;line-height:1.2;margin:0 0 10px;letter-spacing:-.5px}
+h2{font-size:26px;margin:0 0 18px;letter-spacing:-.3px;position:relative}
+/* every section heading carries the page accent */
+.card > h2::after,.split-text h2::after{content:"";display:block;width:46px;height:4px;border-radius:2px;
+  margin-top:9px;background:var(--c)}
+.card.dark > h2::after{background:linear-gradient(90deg,#fff,rgba(255,255,255,.35))}
 h3{font-size:18px;margin:0 0 6px}
 p.lead{color:var(--muted);margin-top:0}
 .hero{padding-top:28px}
@@ -53,109 +137,185 @@ p.lead{color:var(--muted);margin-top:0}
 /* ---------- home: intro paragraph & availability note ---------- */
 .lead-para{margin:0;font-size:16px;line-height:1.7}
 
-.seeking{display:flex;gap:12px;align-items:flex-start;background:#eef6ff;border:1px solid #cfe4ff;
+/* availability note — warm amber so it reads as a callout, not body text */
+.seeking{display:flex;gap:12px;align-items:flex-start;background:var(--s4-soft);
+  border:1px solid #F6DFB0;border-left:4px solid var(--s4);
   border-radius:14px;padding:14px 16px;margin-top:18px;font-size:15px;line-height:1.55}
-.seeking i{color:var(--deep);font-size:16px;margin-top:3px;flex-shrink:0}
+.seeking i{color:var(--s4-ink);font-size:16px;margin-top:3px;flex-shrink:0}
+.seeking strong{color:var(--s4-ink)}
 
 /* ---------- at a glance: circles ---------- */
 .glance{display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
 .glance-item{display:flex;flex-direction:column;align-items:center;width:calc(25% - 17px)}
 .glance-circle{
   width:98px;height:98px;border-radius:50%;
-  background:var(--accent);color:#fff;
+  background:linear-gradient(140deg,var(--s1),var(--s2));color:#fff;
   display:flex;align-items:center;justify-content:center;
   font-size:32px;font-weight:700;letter-spacing:-.5px;
-  box-shadow:0 6px 18px rgba(58,134,255,.32)}
+  box-shadow:0 8px 20px rgba(47,111,237,.30)}
+.glance-item:nth-child(2) .glance-circle{background:linear-gradient(140deg,var(--s2),var(--s3));
+  box-shadow:0 8px 20px rgba(15,163,177,.30)}
+.glance-item:nth-child(3) .glance-circle{background:linear-gradient(140deg,var(--s4),var(--s5));
+  box-shadow:0 8px 20px rgba(232,147,12,.30)}
+.glance-item:nth-child(4) .glance-circle{background:linear-gradient(140deg,var(--s6),var(--s1));
+  box-shadow:0 8px 20px rgba(107,78,230,.30)}
 .glance-circle.sm{font-size:18px;letter-spacing:0;text-align:center;line-height:1.2;padding:0 8px}
 .glance-label{margin-top:12px;text-align:center;font-size:14px;color:var(--muted);line-height:1.4}
 
 /* ---------- news thread ---------- */
 .thread{list-style:none;margin:0;padding:0;position:relative}
-.thread::before{content:"";position:absolute;left:12px;top:12px;bottom:12px;width:2px;background:#c3d0e0}
+.thread::before{content:"";position:absolute;left:12px;top:12px;bottom:12px;width:2px;
+  background:linear-gradient(180deg,var(--s1),var(--s2),var(--s3),var(--s4),var(--s5),var(--s6))}
 .thread li{position:relative;padding:0 0 24px 36px}
 .thread li:last-child{padding-bottom:0}
 .thread li::before{content:"";position:absolute;left:2px;top:4px;width:16px;height:16px;border-radius:50%;
-  background:#fff;border:3px solid var(--deep);z-index:1}
-.thread .when{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:3px;letter-spacing:.2px}
+  background:#fff;border:3px solid var(--s1);z-index:1;box-shadow:0 0 0 4px rgba(47,111,237,.10)}
+.thread li:nth-child(6n+2)::before{border-color:var(--s2);box-shadow:0 0 0 4px rgba(15,163,177,.10)}
+.thread li:nth-child(6n+3)::before{border-color:var(--s3);box-shadow:0 0 0 4px rgba(31,163,99,.10)}
+.thread li:nth-child(6n+4)::before{border-color:var(--s4);box-shadow:0 0 0 4px rgba(232,147,12,.12)}
+.thread li:nth-child(6n+5)::before{border-color:var(--s5);box-shadow:0 0 0 4px rgba(239,91,91,.10)}
+.thread li:nth-child(6n+6)::before{border-color:var(--s6);box-shadow:0 0 0 4px rgba(107,78,230,.10)}
+.thread .when{display:inline-block;font-size:12px;font-weight:700;margin-bottom:5px;letter-spacing:.3px;
+  text-transform:uppercase;padding:3px 9px;border-radius:999px;
+  color:var(--s1-ink);background:var(--s1-soft)}
+.thread li:nth-child(6n+2) .when{color:var(--s2-ink);background:var(--s2-soft)}
+.thread li:nth-child(6n+3) .when{color:var(--s3-ink);background:var(--s3-soft)}
+.thread li:nth-child(6n+4) .when{color:var(--s4-ink);background:var(--s4-soft)}
+.thread li:nth-child(6n+5) .when{color:var(--s5-ink);background:var(--s5-soft)}
+.thread li:nth-child(6n+6) .when{color:var(--s6-ink);background:var(--s6-soft)}
 .thread .what{display:block;font-size:16px;font-weight:600;line-height:1.45}
 .thread .detail{margin:5px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
 
-/* ---------- chips ---------- */
+/* ---------- chips: the spectrum, cycling ---------- */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chip{background:var(--chip);border:1px solid var(--border);padding:8px 14px;border-radius:999px;color:#233041;font-size:16px}
+.chip{--k:var(--s1);--kb:var(--s1-soft);--ki:var(--s1-ink);
+  background:var(--kb);border:1px solid var(--k);padding:7px 14px;border-radius:999px;
+  color:var(--ki);font-size:15px;font-weight:500;line-height:1.3;
+  transition:transform .15s ease, box-shadow .15s ease}
+.chip:nth-child(6n+2){--k:var(--s2);--kb:var(--s2-soft);--ki:var(--s2-ink)}
+.chip:nth-child(6n+3){--k:var(--s3);--kb:var(--s3-soft);--ki:var(--s3-ink)}
+.chip:nth-child(6n+4){--k:var(--s4);--kb:var(--s4-soft);--ki:var(--s4-ink)}
+.chip:nth-child(6n+5){--k:var(--s5);--kb:var(--s5-soft);--ki:var(--s5-ink)}
+.chip:nth-child(6n+6){--k:var(--s6);--kb:var(--s6-soft);--ki:var(--s6-ink)}
+.chip:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(21,40,76,.12)}
 
 /* ---------- lists & buttons ---------- */
 .list{display:grid;gap:12px;padding-left:0;margin:0;list-style:none}
-.item{padding:14px;border:1px solid var(--border);background:#fff;border-radius:14px}
+/* each entry gets a coloured rail so long CV lists stay legible */
+.item{padding:14px 14px 14px 16px;border:1px solid var(--border);background:#fff;border-radius:14px;
+  border-left:4px solid var(--s1);transition:box-shadow .18s ease, transform .18s ease}
+.list .item:nth-child(6n+2){border-left-color:var(--s2)}
+.list .item:nth-child(6n+3){border-left-color:var(--s3)}
+.list .item:nth-child(6n+4){border-left-color:var(--s4)}
+.list .item:nth-child(6n+5){border-left-color:var(--s5)}
+.list .item:nth-child(6n+6){border-left-color:var(--s6)}
+.item:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(21,40,76,.09)}
+
 .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);
-  padding:10px 14px;border-radius:12px;color:#1f3b63;box-shadow:var(--shadow);font-size:16px}
-.btn i{font-size:20px;line-height:1}
-.btn:hover{background:#f4f8ff;text-decoration:none}
+.btn{--b:var(--s1);
+  display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);
+  padding:10px 14px;border-radius:12px;color:#1f2b3d;box-shadow:var(--shadow);font-size:16px;
+  font-weight:500;transition:border-color .18s, box-shadow .18s, transform .18s, background .18s}
+.btn i{font-size:20px;line-height:1;color:var(--b)}
+.btn:hover{text-decoration:none;transform:translateY(-2px);border-color:var(--b);
+  background:#fff;
+  background:color-mix(in srgb,var(--b) 8%,#fff);
+  box-shadow:0 10px 22px rgba(21,40,76,.14)}
+
+/* brand colours — each service in its own logo colour */
+.btn.b-mail    {--b:#EA4335}
+.btn.b-orcid   {--b:#A6CE39}
+.btn.b-scholar {--b:#4285F4}
+.btn.b-linkedin{--b:#0A66C2}
+.btn.b-rg      {--b:#00CCBB}
+.btn.b-cv      {--b:#6B4EE6}
+.btn.b-send    {--b:var(--c)}
+.btn.b-next    {--b:var(--c)}
 
 /* ---------- footer ---------- */
 footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
-.footer-wrap {
-  text-align: right;         /* Pushes the text to the right */
-  max-width: 1200px;         /* Change this number to match the max-width of your main content */
-  margin: 0 auto;            /* This centers the invisible footer box on the page */
-  padding: 20px;             /* Adds a little breathing room so it doesn't touch the absolute edge */
-}
+.footer-wrap{text-align:right;max-width:1200px;margin:0 auto;padding:20px}
 
 /* ---------- dark card (hero, page headings) ---------- */
-.card.dark{background:var(--deep);border-color:var(--deep);color:#fff}
+.card.dark{
+  background:linear-gradient(135deg,var(--hero1) 0%,var(--hero2) 55%,var(--hero3) 130%);
+  border-color:transparent;color:#fff;position:relative;overflow:hidden;
+  box-shadow:0 18px 40px rgba(16,27,51,.28)}
+/* scattered-light glow in the corner */
+.card.dark::before{content:"";position:absolute;right:-90px;top:-120px;width:360px;height:360px;
+  border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.20),transparent 65%);
+  pointer-events:none}
+.card.dark > *{position:relative;z-index:1}
 .card.dark h1,.card.dark h2,.card.dark h3{color:#fff}
-.card.dark p{color:#dbe6f7}
+.card.dark p{color:#e3ecfb}
 .card.dark strong{color:#fff}
-.card.dark a:not(.btn){color:#a8ccff}
+.card.dark a:not(.btn){color:#bcd8ff}
 
 /* ---------- hero: photo beside the text, inside the dark card ---------- */
 .hero-card{display:flex;align-items:center;gap:30px}
-.hero-card .photo{width:190px;height:190px;flex-shrink:0;border-radius:50%;border:5px solid #fff;
-  box-shadow:var(--shadow);background:#e8f6ff url('assets/Profile picture_VM.jpg') center/cover no-repeat}
+
+/* spectrum halo — light scattered by a particle, which is the whole subject */
+.photo-ring{position:relative;flex-shrink:0;width:206px;height:206px;border-radius:50%;padding:8px;
+  background:conic-gradient(from 210deg,#EF5B5B,#F4A21A,#F7E96B,#3FC97F,#22B8D6,#6B4EE6,#EF5B5B);
+  animation:halo 22s linear infinite;
+  box-shadow:0 14px 34px rgba(0,0,0,.32)}
+@keyframes halo{to{transform:rotate(360deg)}}
+.photo-ring .photo{animation:halo 22s linear infinite reverse}
+
+.hero-card .photo{width:100%;height:100%;flex-shrink:0;border-radius:50%;border:4px solid #fff;
+  background:#e8f6ff url('assets/Profile picture_VM.jpg') center/cover no-repeat}
+/* fallback if the ring wrapper is not present */
+.hero-card > .photo{width:190px;height:190px;border-width:5px;box-shadow:var(--shadow)}
 .hero-card .hero-text{min-width:0}
+
 @media(max-width:760px){
   .hero-card{flex-direction:column;text-align:center;gap:20px}
-  .hero-card .photo{width:150px;height:150px}
+  .photo-ring{width:166px;height:166px}
+  .hero-card > .photo{width:150px;height:150px}
   .cta{justify-content:center}
 }
 
 /* ---------- publications ---------- */
 .pub h3{margin:0 0 4px;font-weight:600;line-height:1.4;font-size:16px}
-.pub h3 a{color:var(--accent)}
+.pub h3 a{color:var(--c-ink)}
 .pub .authors{margin:0;font-size:14px;font-weight:600}
 .pub .venue{margin:0;font-size:14px;color:var(--muted);font-style:italic}
-.badge{display:inline-block;background:var(--chip);border:1px solid var(--accent);color:var(--accent);
-  padding:1px 8px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:.3px;
+.badge{display:inline-block;background:var(--c-soft);border:1px solid var(--c);color:var(--c-ink);
+  padding:1px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.3px;
   text-transform:uppercase;margin-left:6px;vertical-align:2px;white-space:nowrap}
 
 /* ---------- highlights with graphical abstracts ---------- */
 .highlight{margin-top:28px}
 .highlight:first-of-type{margin-top:0}
 .highlight h3{font-size:19px;line-height:1.35;margin:0 0 6px;font-weight:700}
-.highlight h3 a{color:var(--accent)}
+.highlight h3 a{color:var(--c-ink)}
 .highlight .authors{margin:0;font-weight:700;font-size:15px}
 .highlight .venue{margin:0 0 14px;font-size:15px}
-.figure{background:#f7fbff;border:1px solid var(--border);border-radius:14px;padding:12px;margin:0}
+.figure{background:linear-gradient(180deg,var(--c-soft),#fff);border:1px solid var(--border);
+  border-radius:14px;padding:12px;margin:0}
 .figure img{width:100%;height:auto;display:block;border-radius:8px}
 .figure figcaption{margin-top:10px;text-align:center;font-size:14px;line-height:1.5}
+.figure figcaption em{color:var(--c-ink);font-style:normal;font-weight:700}
 
-/* ---------- CV entries (experience, education) ----------
-   A two-column table: description left, location/dates right-aligned. */
+/* ---------- CV entries (experience, education) ---------- */
 .cv-entry{width:100%;border-collapse:collapse;table-layout:auto}
 .cv-entry td{padding:0 0 2px;vertical-align:baseline;border:none}
 .cv-entry .org{font-weight:700;font-size:16px}
-.cv-entry .role{font-size:15px}
+.cv-entry .role{font-size:15px;color:var(--muted)}
 .cv-entry .right{text-align:right;white-space:nowrap;color:var(--muted);font-size:14px;width:1%;padding-left:20px}
 .cv-note{margin:8px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
-.cv-note em{color:var(--text);font-style:normal;font-weight:700;text-decoration:underline}
-.cv-grade{font-weight:600;color:var(--text)}
+.cv-note em{color:var(--c-ink);font-style:normal;font-weight:700;text-decoration:none}
+.cv-grade{font-weight:700;color:var(--s3-ink);background:var(--s3-soft);
+  padding:2px 9px;border-radius:999px;font-size:13px;display:inline-block;margin-top:4px}
 
-/* ---------- awards table ---------- */
+/* ---------- awards / publication tables ---------- */
 .cv-table{width:100%;border-collapse:collapse}
-.cv-table td{padding:9px 0;border-top:1px solid var(--border);vertical-align:top;font-size:15px}
+.cv-table td{padding:10px 0;border-top:1px solid var(--border);vertical-align:top;font-size:15px}
 .cv-table tr:first-child td{border-top:none}
-.cv-table .yr{width:1%;color:var(--muted);font-weight:600;font-size:14px;white-space:nowrap;padding-right:32px}
+.cv-table tr:hover td{background:linear-gradient(90deg,var(--c-soft),transparent 70%)}
+.cv-table .yr{width:1%;font-weight:700;font-size:13px;white-space:nowrap;padding-right:28px;
+  color:var(--c-ink)}
+.cv-table a{font-weight:500}
 
 /* ---------- simple entries (projects, conferences) ---------- */
 .entry strong{font-size:16px}
@@ -163,59 +323,39 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .entry .note{display:block;color:var(--muted);font-size:14px;margin-top:2px}
 
 /* ---------- skills groups ---------- */
-.group{margin-top:16px}
+.group{margin-top:18px}
 .group:first-child{margin-top:0}
-.group h3{font-size:16px;margin:0}
+.group h3{font-size:15px;margin:0;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
 
 /* ---------- research themes ---------- */
 .theme + .theme{margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
 
 /* ===== split image + text sections ===== */
-.split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:stretch;
-}
-
+.split{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch}
 .split-fig{margin:0;display:flex;flex-direction:column;min-height:0}
-
-/* the wrapper holds the height; the image is absolutely positioned inside it,
-   so the image itself contributes nothing to the row height */
-.split-img{
-  position:relative;
-  flex:1 1 auto;
-  min-height:280px;
-}
+.split-img{position:relative;flex:1 1 auto;min-height:280px}
 .split-img img{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:contain;
-  object-position:center;
-  display:block;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:#fff;
-}
-
-.split-fig figcaption{
-  flex:0 0 auto;
-  font-size:13px;
-  line-height:1.5;
-  color:var(--muted);
-  margin-top:10px;
-}
-
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:contain;object-position:center;display:block;
+  border-radius:14px;border:1px solid var(--border);
+  background:linear-gradient(180deg,var(--c-soft),#fff)}
+.split-fig figcaption{flex:0 0 auto;font-size:13px;line-height:1.5;color:var(--muted);margin-top:10px}
 .split-text{display:flex;flex-direction:column;justify-content:center}
 .split-text h2{margin-top:0}
 .split-text p{margin:0 0 14px}
 .split-text p:last-child{margin-bottom:0}
 
 .split-list{list-style:none;padding:0;margin:0 0 14px}
-.split-list li{position:relative;padding-left:20px;margin-bottom:7px;line-height:1.55}
-.split-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;
-  border-radius:50%;background:var(--text)}
-.split-list .hl{color:var(--accent);font-weight:600}
+.split-list li{position:relative;padding-left:22px;margin-bottom:8px;line-height:1.55}
+.split-list li::before{content:"";position:absolute;left:0;top:.58em;width:9px;height:9px;
+  border-radius:50%;background:var(--s1)}
+.split-list li:nth-child(6n+2)::before{background:var(--s2)}
+.split-list li:nth-child(6n+3)::before{background:var(--s3)}
+.split-list li:nth-child(6n+4)::before{background:var(--s4)}
+.split-list li:nth-child(6n+5)::before{background:var(--s5)}
+.split-list li:nth-child(6n+6)::before{background:var(--s6)}
+.split-list strong{color:var(--c-ink)}
+.split-list .hl{color:var(--c-ink);font-weight:600}
 
 .split--reverse .split-fig{order:2}
 .split--reverse .split-text{order:1}
@@ -226,36 +366,31 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .carousel-slides{display:flex;transition:transform .35s ease}
 .carousel-slide{min-width:100%;padding:2px}
 
-/* UPDATED BUTTON STYLES HERE */
 .carousel-btn{
   position:absolute;top:50%;transform:translateY(-50%);
-  width:40px;height:40px;border-radius:50%;
-  background:#1e3a63;
-  border:none;
-  outline:none;
-  box-shadow:var(--shadow);
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(140deg,var(--c),var(--hero2));
+  border:none;outline:none;
+  box-shadow:0 6px 16px rgba(21,40,76,.22);
   display:flex;align-items:center;justify-content:center;
-  color:#ffffff;font-size:15px;cursor:pointer;z-index:2;
-  transition:background-color 0.2s ease-in-out;
-}
-.carousel-btn:hover{background:#132745}
-
+  color:#fff;font-size:15px;cursor:pointer;z-index:2;
+  transition:filter .2s ease, transform .2s ease}
+.carousel-btn:hover{filter:brightness(1.12);transform:translateY(-50%) scale(1.06)}
 .carousel-btn.prev{left:0}
 .carousel-btn.next{right:0}
 
 .carousel-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px}
-.carousel-dot{width:8px;height:8px;border-radius:50%;background:#cbd9ea;border:none;padding:0;cursor:pointer}
-.carousel-dot[aria-selected="true"]{background:#1e3a63}
+.carousel-dot{width:9px;height:9px;border-radius:50%;background:#cfdbea;border:none;padding:0;cursor:pointer;
+  transition:background .2s, transform .2s}
+.carousel-dot[aria-selected="true"]{background:var(--c);transform:scale(1.25)}
 
 /* ---------- publication carousel (research page) ----------
-   NOTE: research.html carries the same rules in a page-level <style>
-   block, which is what actually renders. Keep the two in sync.
-   A hard height on the track and slide means every slide is identical
-   regardless of title length or abstract aspect ratio. */
+   NOTE: research.html carries the sizing rules in a page-level
+   <style> block, which is what actually renders. Keep in sync. */
 #pubCarousel .carousel-track{height:460px}
 #pubCarousel .carousel-slide{height:460px;overflow:hidden}
 #pubCarousel .carousel-slide h3{font-size:18px;line-height:1.35;margin:0 0 5px;font-weight:700}
-#pubCarousel .carousel-slide h3 a{color:var(--accent)}
+#pubCarousel .carousel-slide h3 a{color:var(--c-ink)}
 #pubCarousel .carousel-slide .authors{margin:0;font-weight:700;font-size:14px}
 #pubCarousel .carousel-slide .venue{margin:0 0 10px;font-size:14px;color:var(--muted);font-style:italic}
 #pubCarousel .carousel-slide .figure{padding:10px}
@@ -267,28 +402,40 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
 .duo > .card{display:flex;flex-direction:column}
 
-/* narrow column — no side gutters; arrows sit in the dots row */
 #liCarousel{padding:0}
-#liCarousel .carousel-btn{position:static;transform:none;width:34px;height:34px;font-size:13px}
+#liCarousel .carousel-btn{position:static;transform:none;width:36px;height:36px;font-size:13px}
+#liCarousel .carousel-btn:hover{transform:scale(1.06)}
 #liCarousel .carousel-dots{gap:12px}
 .li-slide{display:flex;justify-content:center}
 .li-slide iframe{width:100%;height:520px;border:1px solid var(--border);border-radius:14px;
   background:#fff;display:block}
 
-/* talks list — fills the column and spreads its entries down it */
+/* talks list — coloured rails, thumbnails pick up the accent on hover */
 .talks{list-style:none;margin:0;padding:0;flex:1 1 auto;
   display:flex;flex-direction:column;justify-content:space-between}
 .talks li{padding:12px 0;border-top:1px solid var(--border)}
 .talks li:first-child{border-top:none;padding-top:0}
 .talks .what{display:block;font-size:15px;font-weight:600;line-height:1.45}
-.talks .where{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
+.talks .where{display:inline-block;font-size:12px;color:var(--s1-ink);background:var(--s1-soft);
+  margin-top:5px;padding:2px 9px;border-radius:999px;font-weight:600;line-height:1.5}
+.talks li:nth-child(6n+2) .where{color:var(--s2-ink);background:var(--s2-soft)}
+.talks li:nth-child(6n+3) .where{color:var(--s3-ink);background:var(--s3-soft)}
+.talks li:nth-child(6n+4) .where{color:var(--s4-ink);background:var(--s4-soft)}
+.talks li:nth-child(6n+5) .where{color:var(--s5-ink);background:var(--s5-soft)}
+.talks li:nth-child(6n+6) .where{color:var(--s6-ink);background:var(--s6-soft)}
+.talks img{border:2px solid var(--s1);transition:transform .18s ease}
+.talks li:nth-child(6n+2) img{border-color:var(--s2)}
+.talks li:nth-child(6n+3) img{border-color:var(--s3)}
+.talks li:nth-child(6n+4) img{border-color:var(--s4)}
+.talks li:nth-child(6n+5) img{border-color:var(--s5)}
+.talks li:nth-child(6n+6) img{border-color:var(--s6)}
+.talks li:hover img{transform:scale(1.06)}
 
-/* ---------- medium screens: seven nav links need tighter spacing ---------- */
+/* ---------- medium screens ---------- */
 @media(max-width:1000px){
   .links a{padding:8px 7px;font-size:15px}
   nav{gap:12px}
 }
-
 @media(max-width:900px){
   .duo{grid-template-columns:1fr}
 }
@@ -300,9 +447,9 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .split-img img{position:static;height:auto;object-fit:initial}
   .split--reverse .split-fig,.split--reverse .split-text{order:initial}
 
-  /* no room for side gutters — arrows drop down beside the dots */
   .carousel{padding:0}
   .carousel-btn{position:static;transform:none}
+  .carousel-btn:hover{transform:scale(1.06)}
   .carousel-dots{gap:12px}
 
   #pubCarousel .carousel-track{height:auto}
@@ -322,7 +469,6 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .glance-circle.sm{font-size:16px}
 }
 @media(max-width:640px){
-  /* stack the CV columns instead of squeezing them */
   .cv-entry,.cv-entry tbody,.cv-entry tr,.cv-entry td{display:block;width:auto}
   .cv-entry .right{text-align:left;padding-left:0;white-space:normal;margin-bottom:4px}
   .cv-table .yr{padding-right:16px}
@@ -331,4 +477,6 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .carousel-slides{transition:none}
+  .photo-ring,.photo-ring .photo{animation:none}
+  .chip:hover,.item:hover,.btn:hover,.talks li:hover img{transform:none}
 }
