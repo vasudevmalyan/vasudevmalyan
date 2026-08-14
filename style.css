@@ -178,13 +178,11 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
      --dot         diameter of the ringed circle
      --dot-centre  distance from the top of a position to that circle's
                    centre. A 16.5px/1.45 title line box is 23.9px tall, so
-                   its middle is 11.96px; 10.5px sits the circle a hair
-                   above that, which optically centres it against the
-                   text (glyphs sit high in the line box because the
-                   descender space below the baseline is mostly empty).
-                   Raise or lower this one number to taste.
-   The rail is painted ABOVE the circles, so it emerges from the exact
-   centre of each one rather than being clipped by the white fill.
+                   its middle is 11.96px, so 12px centres the circle on
+                   the title. Raise or lower this one number to taste.
+   The rail runs centre-to-centre but is painted BEHIND the circles, so the
+   white fill hides its first and last few pixels — exactly how the News
+   timeline looks on the home page.
    Horizontally: logo is 48px, so its centre is x = 24; .cv-roles is
    indented 15px and the circle is 18px, putting its centre at 15 + 9 = 24
    as well. Position text is indented 47px to start at 15 + 47 = 62, flush
@@ -201,20 +199,20 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 /* the middle dot is small at this size — scale it without moving the baseline */
 .sep{font-size:1.8em;line-height:0;vertical-align:-.08em;margin:0 3px;opacity:.75}
 
-.cv-roles{--dot:18px;--dot-centre:10.5px;
+.cv-roles{--dot:18px;--dot-centre:12px;
   list-style:none;margin:16px 0 0 15px;padding:0;position:relative}
 .cv-roles > li{position:relative;padding:0 0 24px 47px}
 .cv-roles > li:last-child{padding-bottom:0}
 .cv-roles > li::before{content:"";position:absolute;left:0;
   top:calc(var(--dot-centre) - var(--dot) / 2);
   width:var(--dot);height:var(--dot);border-radius:50%;
-  background:#fff;border:3px solid var(--deep);z-index:1}
+  background:#fff;border:3px solid var(--deep);z-index:2}
 /* one rail segment per position, running centre to centre: it starts at this
    circle's middle and ends at the next one's, which sits --dot-centre below
    this item's bottom edge. The last position has nothing below it to join. */
 .cv-roles > li::after{content:"";position:absolute;left:calc(var(--dot) / 2 - 1px);
   top:var(--dot-centre);bottom:calc(var(--dot-centre) * -1);
-  width:2px;background:#c3d0e0;z-index:2}
+  width:2px;background:#c3d0e0;z-index:1}
 .cv-roles > li:last-child::after{display:none}
 
 .cv-role-title{font-size:16.5px;font-weight:600;line-height:1.45}
