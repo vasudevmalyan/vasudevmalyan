@@ -173,6 +173,12 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
    LinkedIn-style: organisation logo and name head the entry, its positions
    hang beneath on a ringed-dot timeline matching the .thread news list.
 
+   NOTE: the `*{box-sizing:border-box}` reset at the top of this file does
+   NOT reach ::before/::after — the universal selector does not match
+   pseudo-elements. The circle therefore sets box-sizing explicitly, so
+   --dot is its true outer diameter (border included) and the rail's
+   centre-line maths below actually lands on the circle's centre.
+
    Geometry is driven by the two variables below, so nudging the dot moves
    the rail with it and the two can never drift apart:
      --dot         diameter of the ringed circle
@@ -203,7 +209,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   list-style:none;margin:16px 0 0 15px;padding:0;position:relative}
 .cv-roles > li{position:relative;padding:0 0 24px 47px}
 .cv-roles > li:last-child{padding-bottom:0}
-.cv-roles > li::before{content:"";position:absolute;left:0;
+.cv-roles > li::before{content:"";position:absolute;left:0;box-sizing:border-box;
   top:calc(var(--dot-centre) - var(--dot) / 2);
   width:var(--dot);height:var(--dot);border-radius:50%;
   background:#fff;border:3px solid var(--deep);z-index:2}
