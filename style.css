@@ -171,35 +171,45 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 
 /* ---------- CV thread (about page: experience, education) ----------
    LinkedIn-style: organisation logo and name head the entry, its positions
-   hang beneath. The rail and ringed dots are deliberately identical to the
-   .thread news timeline on the home page — same 16px white dot with a 3px
-   var(--deep) ring on a #c3d0e0 rail. Logos live in assets/ at any square
-   size; they are drawn at 48px with object-fit: contain, so a transparent
-   PNG or an SVG both work. */
+   hang beneath on a ringed-dot timeline matching the .thread news list.
+
+   The geometry is interlocking, so change these together:
+     logo      48px wide  -> its centre sits at x = 24
+     dot       18px wide, .cv-roles indented 15px -> centre at 15 + 9 = 24
+     rail       2px wide, left: 8px inside the li -> centre at 15 + 9 = 24
+     dot top    3px, so its centre (3 + 9 = 12) matches the centre of a
+                16.5px/1.45 title line (23.9 / 2 = 12)
+   Position text is indented 47px so it starts at 15 + 47 = 62 = the
+   organisation name's own left edge (48 logo + 14 gap). */
 .cv-orgs{list-style:none;margin:0;padding:0}
 .cv-orgs > li + li{margin-top:26px;padding-top:24px;border-top:1px solid var(--border)}
 
 .cv-org-head{display:flex;align-items:flex-start;gap:14px}
 .cv-logo{width:48px;height:48px;flex-shrink:0;object-fit:contain;border-radius:8px;background:#fff}
-.cv-org-name{font-weight:700;font-size:17px;line-height:1.35}
-.cv-org-span{display:block;color:var(--muted);font-size:13.5px;font-weight:500;margin-top:2px;
+.cv-org-name{font-size:16.5px;font-weight:700;line-height:1.45}
+.cv-org-span{display:block;color:var(--muted);font-size:15px;font-weight:500;margin-top:3px;
   line-height:1.5;letter-spacing:.2px}
 
-/* margin-left aligns the dot centres with the centre of the 48px logo above */
-.cv-roles{list-style:none;margin:16px 0 0 16px;padding:0;position:relative}
-.cv-roles::before{content:"";position:absolute;left:7px;top:12px;bottom:12px;width:2px;background:#c3d0e0}
-.cv-roles:has(> li:only-child)::before{display:none}
-.cv-roles > li{position:relative;padding:0 0 24px 30px}
+/* the middle dot is small at this size — scale it without moving the baseline */
+.sep{font-size:1.8em;line-height:0;vertical-align:-.08em;margin:0 3px;opacity:.75}
+
+.cv-roles{list-style:none;margin:16px 0 0 15px;padding:0;position:relative}
+.cv-roles > li{position:relative;padding:0 0 24px 47px}
 .cv-roles > li:last-child{padding-bottom:0}
-.cv-roles > li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;
-  background:#fff;border:3px solid var(--deep);z-index:1}
+.cv-roles > li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;
+  border-radius:50%;background:#fff;border:3px solid var(--deep);z-index:1}
+/* one rail segment per position, running dot centre to dot centre; the last
+   position has nothing below it to join, so it draws no segment */
+.cv-roles > li::after{content:"";position:absolute;left:8px;top:12px;bottom:-12px;width:2px;
+  background:#c3d0e0}
+.cv-roles > li:last-child::after{display:none}
 
 .cv-role-title{font-size:16.5px;font-weight:600;line-height:1.45}
-.cv-role-dates{color:var(--muted);font-size:14.5px;font-weight:600;margin-top:3px;
+.cv-role-dates{color:var(--muted);font-size:15px;font-weight:500;margin-top:3px;
   line-height:1.5;letter-spacing:.2px}
 .cv-role-note{margin:8px 0 0;font-size:16.5px;color:var(--muted);line-height:1.55}
-.cv-place{margin-top:8px;font-size:14.5px;color:var(--muted);line-height:1.5}
 .cv-role-note em{color:var(--text);font-style:normal;font-weight:700;text-decoration:underline}
+.cv-place{margin-top:8px;font-size:15px;color:var(--muted);line-height:1.5}
 
 /* ---------- awards table ---------- */
 .cv-table{width:100%;border-collapse:collapse}
@@ -377,10 +387,13 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .cv-entry .right{text-align:left;padding-left:0;white-space:normal;margin-bottom:4px}
   .cv-table .yr{padding-right:16px}
 
-  /* CV thread: a smaller logo leaves more room for long institute names */
+  /* CV thread: a smaller logo leaves more room for long institute names.
+     40px logo -> centre at 20, so the rail indent drops to 20 - 9 = 11px,
+     and the text indent to 40 + 12 - 11 = 41px to stay flush with the name. */
   .cv-logo{width:40px;height:40px}
   .cv-org-head{gap:12px}
-  .cv-roles{margin-left:12px}
+  .cv-roles{margin-left:11px}
+  .cv-roles > li{padding-left:41px}
 }
 
 @media (prefers-reduced-motion: reduce){
