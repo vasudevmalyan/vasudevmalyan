@@ -194,12 +194,12 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .cv-roles > li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;
   background:#fff;border:3px solid var(--deep);z-index:1}
 
-.cv-role-title{font-size:16px;font-weight:600;line-height:1.45}
-.cv-role-dates{color:var(--muted);font-size:13px;font-weight:600;margin-top:2px;
+.cv-role-title{font-size:16.5px;font-weight:600;line-height:1.45}
+.cv-role-dates{color:var(--muted);font-size:14.5px;font-weight:600;margin-top:3px;
   line-height:1.5;letter-spacing:.2px}
-.cv-role-note{margin:7px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
+.cv-role-note{margin:8px 0 0;font-size:16.5px;color:var(--muted);line-height:1.55}
+.cv-place{margin-top:8px;font-size:14.5px;color:var(--muted);line-height:1.5}
 .cv-role-note em{color:var(--text);font-style:normal;font-weight:700;text-decoration:underline}
-.cv-place{margin-top:7px;font-size:13.5px;color:var(--muted);line-height:1.5}
 
 /* ---------- awards table ---------- */
 .cv-table{width:100%;border-collapse:collapse}
