@@ -173,14 +173,22 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
    LinkedIn-style: organisation logo and name head the entry, its positions
    hang beneath on a ringed-dot timeline matching the .thread news list.
 
-   The geometry is interlocking, so change these together:
-     logo      48px wide  -> its centre sits at x = 24
-     dot       18px wide, .cv-roles indented 15px -> centre at 15 + 9 = 24
-     rail       2px wide, left: 8px inside the li -> centre at 15 + 9 = 24
-     dot top    3px, so its centre (3 + 9 = 12) matches the centre of a
-                16.5px/1.45 title line (23.9 / 2 = 12)
-   Position text is indented 47px so it starts at 15 + 47 = 62 = the
-   organisation name's own left edge (48 logo + 14 gap). */
+   Geometry is driven by the two variables below, so nudging the dot moves
+   the rail with it and the two can never drift apart:
+     --dot         diameter of the ringed circle
+     --dot-centre  distance from the top of a position to that circle's
+                   centre. A 16.5px/1.45 title line box is 23.9px tall, so
+                   its middle is 11.96px; 10.5px sits the circle a hair
+                   above that, which optically centres it against the
+                   text (glyphs sit high in the line box because the
+                   descender space below the baseline is mostly empty).
+                   Raise or lower this one number to taste.
+   The rail is painted ABOVE the circles, so it emerges from the exact
+   centre of each one rather than being clipped by the white fill.
+   Horizontally: logo is 48px, so its centre is x = 24; .cv-roles is
+   indented 15px and the circle is 18px, putting its centre at 15 + 9 = 24
+   as well. Position text is indented 47px to start at 15 + 47 = 62, flush
+   with the organisation name (48 logo + 14 gap). */
 .cv-orgs{list-style:none;margin:0;padding:0}
 .cv-orgs > li + li{margin-top:26px;padding-top:24px;border-top:1px solid var(--border)}
 
@@ -193,15 +201,20 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 /* the middle dot is small at this size — scale it without moving the baseline */
 .sep{font-size:1.8em;line-height:0;vertical-align:-.08em;margin:0 3px;opacity:.75}
 
-.cv-roles{list-style:none;margin:16px 0 0 15px;padding:0;position:relative}
+.cv-roles{--dot:18px;--dot-centre:10.5px;
+  list-style:none;margin:16px 0 0 15px;padding:0;position:relative}
 .cv-roles > li{position:relative;padding:0 0 24px 47px}
 .cv-roles > li:last-child{padding-bottom:0}
-.cv-roles > li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;
-  border-radius:50%;background:#fff;border:3px solid var(--deep);z-index:1}
-/* one rail segment per position, running dot centre to dot centre; the last
-   position has nothing below it to join, so it draws no segment */
-.cv-roles > li::after{content:"";position:absolute;left:8px;top:12px;bottom:-12px;width:2px;
-  background:#c3d0e0}
+.cv-roles > li::before{content:"";position:absolute;left:0;
+  top:calc(var(--dot-centre) - var(--dot) / 2);
+  width:var(--dot);height:var(--dot);border-radius:50%;
+  background:#fff;border:3px solid var(--deep);z-index:1}
+/* one rail segment per position, running centre to centre: it starts at this
+   circle's middle and ends at the next one's, which sits --dot-centre below
+   this item's bottom edge. The last position has nothing below it to join. */
+.cv-roles > li::after{content:"";position:absolute;left:calc(var(--dot) / 2 - 1px);
+  top:var(--dot-centre);bottom:calc(var(--dot-centre) * -1);
+  width:2px;background:#c3d0e0;z-index:2}
 .cv-roles > li:last-child::after{display:none}
 
 .cv-role-title{font-size:16.5px;font-weight:600;line-height:1.45}
