@@ -169,34 +169,32 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 .cv-note em{color:var(--text);font-style:normal;font-weight:700;text-decoration:underline}
 .cv-grade{font-weight:600;color:var(--text)}
 
-/* ---------- CV thread: organisation with nested roles (about page) ----------
-   Same visual language as the .thread news timeline on the home page: one
-   vertical rail per organisation, a ringed dot per role. Grouping by
-   organisation means IIT Bombay is named once and its roles hang beneath it. */
+/* ---------- CV thread (about page: experience, education) ----------
+   LinkedIn-style: organisation logo and name head the entry, its positions
+   hang beneath on a rail of small dots. Logos live in assets/ at any square
+   size — they are drawn at 48px and object-fit: contain, so transparent PNG
+   or SVG both work. */
 .cv-orgs{list-style:none;margin:0;padding:0}
-.cv-orgs > li + li{margin-top:24px;padding-top:22px;border-top:1px solid var(--border)}
+.cv-orgs > li + li{margin-top:26px;padding-top:24px;border-top:1px solid var(--border)}
 
-.cv-org-head{display:flex;justify-content:space-between;align-items:baseline;gap:18px}
+.cv-org-head{display:flex;align-items:flex-start;gap:14px}
+.cv-logo{width:48px;height:48px;flex-shrink:0;object-fit:contain;border-radius:8px;background:#fff}
 .cv-org-name{font-weight:700;font-size:17px;line-height:1.35}
-.cv-org-meta{color:var(--muted);font-size:14px;white-space:nowrap;flex-shrink:0}
-.cv-org-span{display:block;color:var(--muted);font-size:13px;font-weight:500;margin-top:2px}
+.cv-org-span{display:block;color:var(--muted);font-size:13.5px;margin-top:2px;line-height:1.5}
 
-.cv-roles{list-style:none;margin:14px 0 0;padding:0;position:relative}
-.cv-roles::before{content:"";position:absolute;left:7px;top:9px;bottom:9px;width:2px;background:#c3d0e0}
-.cv-roles > li{position:relative;padding:0 0 20px 30px}
-.cv-roles > li:last-child{padding-bottom:0}
-.cv-roles > li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;
-  background:#fff;border:3px solid var(--deep);z-index:1}
-/* a single-role organisation needs no rail — the dot alone reads cleaner */
-.cv-roles > li:only-child{padding-bottom:0}
+.cv-roles{list-style:none;margin:14px 0 0 19px;padding:0;position:relative}
+.cv-roles::before{content:"";position:absolute;left:4px;top:12px;bottom:12px;width:2px;background:#dbe3ec}
 .cv-roles:has(> li:only-child)::before{display:none}
+.cv-roles > li{position:relative;padding:0 0 22px 28px}
+.cv-roles > li:last-child{padding-bottom:0}
+.cv-roles > li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;
+  border-radius:50%;background:#96a7bd;z-index:1}
 
-.cv-role-head{display:flex;justify-content:space-between;align-items:baseline;gap:18px}
 .cv-role-title{font-weight:600;font-size:16px;line-height:1.45}
-.cv-role-dates{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.2px;
-  white-space:nowrap;flex-shrink:0}
-.cv-role-note{margin:6px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
-.cv-role-note em{color:var(--text);font-style:normal;font-weight:600}
+.cv-role-dates{color:var(--muted);font-size:13.5px;margin-top:1px;line-height:1.5}
+.cv-role-note{margin:8px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
+.cv-role-note em{color:var(--text);font-style:normal;font-weight:700;text-decoration:underline}
+.cv-place{margin-top:7px;font-size:13.5px;color:var(--muted);line-height:1.5}
 
 /* ---------- awards table ---------- */
 .cv-table{width:100%;border-collapse:collapse}
@@ -374,9 +372,10 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
   .cv-entry .right{text-align:left;padding-left:0;white-space:normal;margin-bottom:4px}
   .cv-table .yr{padding-right:16px}
 
-  /* CV thread: location and dates drop under the name instead of squeezing */
-  .cv-org-head,.cv-role-head{flex-direction:column;align-items:flex-start;gap:2px}
-  .cv-org-meta,.cv-role-dates{white-space:normal}
+  /* CV thread: a smaller logo leaves more room for long institute names */
+  .cv-logo{width:40px;height:40px}
+  .cv-org-head{gap:12px}
+  .cv-roles{margin-left:15px}
 }
 
 @media (prefers-reduced-motion: reduce){
