@@ -126,7 +126,6 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
    sentence; only the small trailing arrow marks it as clickable. */
 .card.dark a.cert-link{color:inherit;text-decoration:none;transition:opacity .2s ease}
 .card.dark a.cert-link:hover{color:inherit;text-decoration:underline;text-underline-offset:3px;opacity:.85}
-.card.dark a.cert-link i{font-size:.72em;margin-left:6px;opacity:.55;vertical-align:1px}
 .card.dark a.cert-link{transition:opacity .2s ease}
 
 /* Alternative treatment: a small outlined pill, echoing the .chip shape.
