@@ -105,7 +105,7 @@ footer{color:#72829a;font-size:14px;margin:30px 0 16px;text-align:center}
 /* ---------- dark card (hero, page headings) ---------- */
 .card.dark{background:var(--deep);border-color:var(--deep);color:#fff}
 .card.dark h1,.card.dark h2,.card.dark h3{color:#fff}
-.card.dark p{color:#dbe6f7}
+.card.dark p{color:#fff}
 .card.dark strong{color:#fff}
 .card.dark a:not(.btn){color:#a8ccff}
 
